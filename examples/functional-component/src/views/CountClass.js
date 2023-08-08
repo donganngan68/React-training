@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import '../styles/home.css';
-import '../styles/components/button.css';
+import '../style/home.css';
+import '../style/components/button.css';
 
-
-
-class Home extends Component {
+class CountClass extends Component {
   constructor(props) {
     super(props);
 
@@ -44,4 +42,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default CountClass;
