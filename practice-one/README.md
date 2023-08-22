@@ -12,11 +12,6 @@
 # Folder structure
 ```
 ├── public
-    ├── favicon.ico
-    ├── index.html
-    ├── manifest.json
-    ├── robots.txt
-├── src
     ├── components
     ├── constants
     ├── helpers
@@ -33,7 +28,7 @@
 # Getting started:
 Step 01: Clone repository with SSH:
 ```bash
-git clone https://github.com/donganngan68/react-training.git
+git clone git@github.com:donganngan68/react-training.git
 ```
 Step 02: Change to branch feat/big-practice:
 ```bash
