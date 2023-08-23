@@ -5,7 +5,7 @@ import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 
-// Define fonts
+// Fonts
 const primary = "'Poppins', sans-serif";
 const secondary = "'Montserrat Variable', sans-serif";
 

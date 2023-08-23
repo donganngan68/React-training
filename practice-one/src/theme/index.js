@@ -1,7 +1,7 @@
 import colors from './colors';
 import fonts from './fonts';
 
-// Component theme custom
+// Components theme custom
 import ButtonTheme from './components/buttons';
 import TextTheme from './components/text';
 
