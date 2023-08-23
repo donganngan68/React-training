@@ -1,10 +1,8 @@
-const colors = {
-  colors: {
-    primary: '#7c3fff',
-    secondary: '#ff3f90',
-    light: '#9d959f',
-    dark: '#000',
-  },
-};
+const primaryColor = '#7c3fff';
 
-export default colors;
+export default {
+  primary: primaryColor,
+  textColor: '#000',
+  positiveColor: 'primaryColor',
+  negativeColor: '#f56565',
+};

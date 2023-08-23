@@ -1,2 +1,20 @@
-export { default as colors } from './colors';
-export { default as fonts } from './fonts';
+import colors from './colors';
+import fonts from './fonts';
+
+// Component theme custom
+import ButtonTheme from './components/buttons';
+import TextTheme from './components/text';
+
+export default {
+  default: {
+    colors,
+    fonts,
+    fontSizes: {
+      '2md': '2rem', // 32px
+    },
+    components: {
+      Button: ButtonTheme,
+      Text: TextTheme,
+    },
+  },
+};

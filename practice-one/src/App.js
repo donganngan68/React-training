@@ -1,10 +1,16 @@
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import {
+  ChakraProvider, extendTheme, Text,
+} from '@chakra-ui/react';
+
+import themeConfiguration from './theme';
+
+const defaultTheme = extendTheme(themeConfiguration.default);
 
 function App() {
   return (
-    <ChakraProvider>
-      Hello World
+    <ChakraProvider theme={defaultTheme}>
+      <Text>Hello World</Text>
     </ChakraProvider>
   );
 }
