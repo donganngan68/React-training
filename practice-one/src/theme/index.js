@@ -9,6 +9,11 @@ export default {
   default: {
     colors,
     fonts,
+    sizes: {
+      container: {
+        xl: '1172px',
+      },
+    },
     fontSizes: {
       '2md': '2rem', // 32px
     },
