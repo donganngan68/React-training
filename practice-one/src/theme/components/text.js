@@ -1,5 +1,5 @@
 export default {
   baseStyle: {
-    color: 'texColor',
+    color: 'textColor',
   },
 };
