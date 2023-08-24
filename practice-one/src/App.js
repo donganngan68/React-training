@@ -1,16 +1,24 @@
 import React from 'react';
 import {
-  ChakraProvider, extendTheme, Text,
+  ChakraProvider, extendTheme,
 } from '@chakra-ui/react';
 
+// Theme
 import themeConfiguration from './theme';
+
+import StickyHeader from './components/StickyHeader';
+import Header from './components/Header';
+import Partners from './components/Partners';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
 function App() {
+  console.log(defaultTheme);
   return (
     <ChakraProvider theme={defaultTheme}>
-      <Text>Hello World</Text>
+      <StickyHeader />
+      <Header />
+      <Partners />
     </ChakraProvider>
   );
 }

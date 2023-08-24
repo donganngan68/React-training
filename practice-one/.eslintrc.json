@@ -8,7 +8,7 @@
       "ecmaFeatures": {
         "jsx": true
       },
-      "ecmaVersion": 7,
+      "ecmaVersion": 2022,
       "sourceType": "module"
     },
     "plugins": ["react"],
@@ -18,6 +18,7 @@
         {
           "extensions": [".js", ".jsx"]
         }
-      ]
+      ],
+      "react/jsx-props-no-spreading": "off"
     }
 }
