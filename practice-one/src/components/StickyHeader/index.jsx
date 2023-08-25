@@ -6,6 +6,8 @@ import {
 // Components
 import Container from '../Container';
 
+import Constants from '../../constants';
+
 export default function StickyHeader() {
   return (
     <Box w="full" backgroundColor="primary">
@@ -21,9 +23,9 @@ export default function StickyHeader() {
             <Link href="#learn-more" textDecoration="underline">Learn more</Link>
           </Text>
           <HStack>
-            <Text color="white" fontSize="sm">Shipping</Text>
-            <Text color="white" fontSize="sm">FAQ</Text>
-            <Text color="white" fontSize="sm">Contact</Text>
+            {Constants.navSticky.map((item) => (
+              <Link color="white" fontSize="sm" key={item.id} href={item.href}>{item.name}</Link>
+            ))}
             <Text color="white" fontSize="sm">Eng | S &#709;</Text>
           </HStack>
         </HStack>

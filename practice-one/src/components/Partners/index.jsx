@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/react';
 import Container from '../Container';
 
+// constants
 import Constants from '../../constants';
 
 export default function Partners() {

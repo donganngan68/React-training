@@ -1,9 +1,12 @@
 import React, { memo } from 'react';
+
+// propTypes library
+import PropTypes from 'prop-types';
+
 import {
   Container as ChakraContainer,
 } from '@chakra-ui/react';
 
-// eslint-disable-next-line react/prop-types
 const Container = ({ children, ...rest }) => (
   <ChakraContainer
     maxW={{
@@ -16,8 +19,15 @@ const Container = ({ children, ...rest }) => (
     {...rest}
   >
     {children}
-
   </ChakraContainer>
 );
+
+Container.propTypes = {
+  children: PropTypes.node,
+};
+
+Container.defaultProps = {
+  children: null,
+};
 
 export default memo(Container);
