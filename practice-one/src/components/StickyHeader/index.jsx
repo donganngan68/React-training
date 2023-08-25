@@ -6,6 +6,7 @@ import {
 // Components
 import Container from '../Container';
 
+// Constants
 import Constants from '../../constants';
 
 export default function StickyHeader() {

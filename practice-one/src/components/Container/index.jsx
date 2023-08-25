@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-// propTypes library
+// PropTypes library
 import PropTypes from 'prop-types';
 
 import {
