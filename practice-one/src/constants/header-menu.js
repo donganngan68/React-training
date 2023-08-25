@@ -1,4 +1,4 @@
-export default [
+const headerMenu = [
   'New',
   'Tops',
   'Bottoms',
@@ -7,3 +7,5 @@ export default [
   'Collections',
   'Sale',
 ];
+
+export default headerMenu;

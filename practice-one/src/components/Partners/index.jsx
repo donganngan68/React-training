@@ -5,7 +5,7 @@ import {
 import Container from '../Container';
 
 // Constants
-import Constants from '../../constants';
+import constants from '../../constants';
 
 export default function Partners() {
   return (
@@ -13,7 +13,7 @@ export default function Partners() {
       <Container>
         <Flex pt="71" pb="21" justify-content="center">
           <HStack px="14">
-            {Constants.partners.map((item) => (
+            {constants.partners.map((item) => (
               <Image mr="250" key={item.id} src={item.logo} alt={item.name} />
             ))}
             ;

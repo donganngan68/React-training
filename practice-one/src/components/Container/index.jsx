@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 // PropTypes library
 import PropTypes from 'prop-types';
@@ -30,4 +30,4 @@ Container.defaultProps = {
   children: null,
 };
 
-export default memo(Container);
+export default Container;

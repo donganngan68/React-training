@@ -7,7 +7,7 @@ import {
 import Container from '../Container';
 
 // Constants
-import Constants from '../../constants';
+import constants from '../../constants';
 
 export default function StickyHeader() {
   return (
@@ -19,12 +19,11 @@ export default function StickyHeader() {
             <Link href="tel:+331697720">(00) 33 169 7720</Link>
           </Text>
           <Text color="white" fontSize="sm">
-            Free US shipping an all orders $100+
-            {' '}
+            Free US shipping an all orders $100+ &nbsp;
             <Link href="#learn-more" textDecoration="underline">Learn more</Link>
           </Text>
           <HStack>
-            {Constants.navSticky.map((item) => (
+            {constants.navSticky.map((item) => (
               <Link color="white" fontSize="sm" key={item.id} href={item.href}>{item.name}</Link>
             ))}
             <Text color="white" fontSize="sm">Eng | S &#709;</Text>
