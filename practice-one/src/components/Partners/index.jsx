@@ -13,13 +13,18 @@ export default function Partners() {
       <Container>
         <Flex pt="71" pb="21" justify-content="center">
           <HStack px="14">
-            {constants.partners.map((item) => (
-              <Image mr="250" key={item.id} src={item.logo} alt={item.name} />
-            ))}
-            ;
+            {constants.partners.map(({logo, id, name}) => {
+              if(!logo) {
+                return null;
+              }
+              
+              return (
+                <Image key={id} src={logo} alt={name} />
+              )
+            })}
           </HStack>
         </Flex>
       </Container>
     </Box>
-  );
+  )
 }
