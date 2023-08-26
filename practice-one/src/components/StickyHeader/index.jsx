@@ -23,8 +23,8 @@ export default function StickyHeader() {
             <Link href="#learn-more" textDecoration="underline">Learn more</Link>
           </Text>
           <HStack>
-            {constants.navSticky.map((item) => (
-              <Link color="white" fontSize="sm" key={item.id} href={item.href}>{item.name}</Link>
+            {constants.navSticky.map(({ id, href, name }) => (
+              <Link color="white" fontSize="sm" key={id} href={href}>{name}</Link>
             ))}
             <Text color="white" fontSize="sm">Eng | S &#709;</Text>
           </HStack>
