@@ -10,6 +10,7 @@ import themeConfiguration from './theme';
 import StickyHeader from './components/StickyHeader';
 import Header from './components/Header';
 import Partners from './components/Partners';
+import Highlight from './components/Highlight';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
@@ -20,6 +21,7 @@ function App() {
       <StickyHeader />
       <Header />
       <Partners />
+      <Highlight />
     </ChakraProvider>
   );
 }
