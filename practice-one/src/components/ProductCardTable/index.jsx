@@ -7,28 +7,28 @@ export default function ProductCard() {
     <Box>
       <Grid templateColumns="repeat(4, 1fr)">
         <GridItem w="100%">
-          <ProductCardItem title="Hi1" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
         <GridItem w="100%">
-          <ProductCardItem title="Hi2" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
         <GridItem w="100%">
-          <ProductCardItem title="Hi3" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
         <GridItem w="100%">
-          <ProductCardItem title="Hi4" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
         <GridItem w="100%">
-          <ProductCardItem title="Hi5" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
         <GridItem w="100%">
-          <ProductCardItem title="Hi6" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
         <GridItem w="100%">
-          <ProductCardItem title="Hi7" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
         <GridItem w="100%">
-          <ProductCardItem title="Hi8" />
+          <ProductCardItem title="Woman in Red Coat" price="$89" />
         </GridItem>
       </Grid>
     </Box>
