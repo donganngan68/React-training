@@ -11,7 +11,7 @@ import StickyHeader from './components/StickyHeader';
 import Header from './components/Header';
 import Partners from './components/Partners';
 import Highlight from './components/Highlight';
-import ProductCardTable from './components/ProductCardTable';
+import ProductList from './components/ProductList';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
@@ -22,7 +22,7 @@ function App() {
       <Header />
       <Partners />
       <Highlight />
-      <ProductCardTable />
+      <ProductList />
     </ChakraProvider>
   );
 }
