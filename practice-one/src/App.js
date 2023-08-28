@@ -20,6 +20,7 @@ function App() {
       <Components.Partners />
       <Components.Highlight />
       <Components.ProductList />
+      <Components.Brand />
     </ChakraProvider>
   );
 }

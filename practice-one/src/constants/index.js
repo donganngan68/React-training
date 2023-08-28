@@ -3,6 +3,7 @@ import images from './images';
 import partners from './partners';
 import navSticky from './nav-sticky';
 import productCardItem from './product-card-item';
+import brand from './brand';
 
 export default {
   headerMenu,
@@ -10,4 +11,5 @@ export default {
   images,
   partners,
   productCardItem,
+  brand,
 };
