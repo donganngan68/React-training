@@ -3,8 +3,8 @@ import {
   Box, Button, Input, Text, Flex,
 } from '@chakra-ui/react';
 
-// ProductCardTable component
-import ProductCardTable from '../ProductCardTable';
+// ProductCard component
+import ProductCard from '../ProductCard';
 
 export default function ProductList() {
   return (
@@ -14,10 +14,10 @@ export default function ProductList() {
         <Text fontSize="2md" fontWeight="bold">Best Weekend Sellers</Text>
       </Box>
       <Flex justify-content="space-between" pb="10">
-        <Input w="96" placeholder="Searching" border="none" borderRadius="1.5" background="#f5f5f5" />
+        <Input w="96" h="12" placeholder="Searching" border="none" borderRadius="1.5" background="#f5f5f5" />
         <Button variant="solid">Add New Product</Button>
       </Flex>
-      <ProductCardTable />
+      <ProductCard />
     </Box>
   );
 }
