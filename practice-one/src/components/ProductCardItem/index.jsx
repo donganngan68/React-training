@@ -3,9 +3,10 @@ import {
   Box, Text, Image, Button, Flex,
 } from '@chakra-ui/react';
 
+import theme from '../../theme/index';
+
 export default function ProductCardItem(products = []) {
   const { product } = products;
-
   return (
     <Box>
       <Box key={product.id}>
@@ -18,7 +19,7 @@ export default function ProductCardItem(products = []) {
         </Box>
         <Box pt="4" textAlign="center">
           <Text>{product.title}</Text>
-          <Text>{product.price}</Text>
+          <Text color={theme.default.colors.primary}>{product.price}</Text>
         </Box>
       </Box>
     </Box>

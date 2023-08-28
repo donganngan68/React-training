@@ -13,7 +13,7 @@ export default function ProductList() {
         <Text fontSize="xs" color="primary" fontWeight="semibold" textTransform="uppercase">Top Selling</Text>
         <Text fontSize="2md" fontWeight="bold">Best Weekend Sellers</Text>
       </Box>
-      <Flex justify-content="space-between" pb="10">
+      <Flex justify="space-between" pb="10">
         <Input w="96" h="12" placeholder="Searching" border="none" borderRadius="1.5" background="#f5f5f5" />
         <Button variant="solid">Add New Product</Button>
       </Flex>
