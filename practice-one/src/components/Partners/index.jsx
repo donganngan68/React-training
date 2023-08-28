@@ -9,19 +9,13 @@ import constants from '../../constants';
 
 export default function Partners() {
   return (
-    <Box>
+    <Box pos="relative">
       <Container>
         <Flex pt="71" pb="21" justify-content="center">
           <HStack px="14">
-            {constants.partners.map(({ logo, id, name }) => {
-              if (!logo) {
-                return null;
-              }
-
-              return (
-                <Image pr="64" key={id} src={logo} alt={name} />
-              );
-            })}
+            {constants.partners.map(({ logo, id, name }) => (
+              <Image pr="64" key={id} src={logo} alt={name} />
+            ))}
           </HStack>
         </Flex>
       </Container>
