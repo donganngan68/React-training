@@ -1,45 +1,38 @@
 const headerMenu = [
-  'New',
-  'Tops',
-  'Bottoms',
-  'Kids',
-  'Accessories',
-  'Collections',
-  'Sale',
   {
     id: 0,
     name: 'New',
-    href: '#New',
+    href: '#new',
   },
   {
-    id: 0,
+    id: 1,
     name: 'Tops',
-    href: '#Tops',
+    href: '#tops',
   },
   {
-    id: 0,
+    id: 2,
     name: 'Bottoms',
-    href: '#Bottoms',
+    href: '#bottoms',
   },
   {
-    id: 0,
+    id: 3,
     name: 'Kids',
-    href: '#Kids',
+    href: '#kids',
   },
   {
-    id: 0,
+    id: 4,
     name: 'Accessories',
-    href: '#Accessories',
+    href: '#accessories',
   },
   {
-    id: 0,
+    id: 5,
     name: 'Collections',
-    href: '#Collections',
+    href: '#collections',
   },
   {
-    id: 0,
+    id: 6,
     name: 'Sale',
-    href: '#Sale',
+    href: '#sale',
   },
 ];
 

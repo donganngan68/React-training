@@ -6,7 +6,7 @@ import {
 // Theme configuration
 import theme from '../../theme/index';
 
-export default function ProductCardItem(products = []) {
+export const ProductCardItem = (products = []) => {
   const { product } = products;
   return (
     <>
@@ -25,4 +25,4 @@ export default function ProductCardItem(products = []) {
       </Box>
     </>
   );
-}
+};

@@ -3,7 +3,7 @@ import {
   Box, Image, Text,
 } from '@chakra-ui/react';
 
-export default function BrandCardItem(products = []) {
+export const BrandCardItem = (products = []) => {
   const { product } = products;
   return (
     <Box key={product.id} pos="relative">
@@ -11,4 +11,4 @@ export default function BrandCardItem(products = []) {
       <Text pos="absolute" bottom="50%" left="45%" fontSize="sm" fontWeight="semibold">Brand</Text>
     </Box>
   );
-}
+};

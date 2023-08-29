@@ -9,13 +9,15 @@ import constants from '../../constants';
 export default function FooterMenu() {
   return (
     <Grid templateColumns="repeat(4, 1fr)" gridColumnGap="10">
-      {constants.dataMenu.MenuFooter.map((item) => (
-        <Box key={item.id}>
+      {constants.dataMenu.MenuFooter.map(({ id: menuId, menu, title }) => (
+        <Box key={menuId}>
           <HStack>
-            <Text pb="5" fontWeight="semibold">{item.title}</Text>
+            <Text pb="5" fontWeight="semibold">{title}</Text>
           </HStack>
           <UnorderedList m="0" listStyleType="none">
-            {item.menu.map((a) => <ListItem pb="4" fontSize="sm"><Link href={a.href}>{a.name}</Link></ListItem>)}
+            {menu.map(({ name, href, id }) => (
+              <ListItem key={id} pb="4" fontSize="sm"><Link href={href}>{name}</Link></ListItem>
+            ))}
           </UnorderedList>
         </Box>
       ))}

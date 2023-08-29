@@ -1,17 +1,13 @@
-import StickyHeader from './StickyHeader';
-import Header from './Header';
-import Partners from './Partners';
-import Highlight from './Highlight';
-import ProductList from './ProductList';
-import Brand from './Brand';
-import Footer from './Footer';
+export * from './Header';
 
-export {
-  StickyHeader,
-  Header,
-  Partners,
-  Highlight,
-  ProductList,
-  Brand,
-  Footer,
-};
+export * from './StickyHeader';
+
+export * from './Highlight';
+
+export * from './ProductList';
+
+export * from './Footer';
+
+export * from './Partners';
+
+export * from './Brand';

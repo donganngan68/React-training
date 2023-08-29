@@ -13,6 +13,7 @@ import {
 const defaultTheme = extendTheme(themeConfiguration.default);
 
 function App() {
+  console.log(defaultTheme);
   return (
     <ChakraProvider theme={defaultTheme}>
       <StickyHeader />
