@@ -10,7 +10,7 @@ export default function FooterMenu() {
   return (
     <Grid templateColumns="repeat(4, 1fr)" gridColumnGap="10">
       {constants.dataMenu.MenuFooter.map((item) => (
-        <Box>
+        <Box key={item.id}>
           <HStack>
             <Text pb="5" fontWeight="semibold">{item.title}</Text>
           </HStack>

@@ -1,6 +1,7 @@
 export default {
   MenuFooter: [
     {
+      id: '0',
       title: 'Company',
       menu: [
         {
@@ -36,6 +37,7 @@ export default {
       ],
     },
     {
+      id: '1',
       title: 'Shop',
       menu: [
         {
@@ -71,6 +73,7 @@ export default {
       ],
     },
     {
+      id: '2',
       title: 'Support',
       menu: [
         {
@@ -101,6 +104,7 @@ export default {
       ],
     },
     {
+      id: '3',
       title: 'FAQ',
       menu: [
         {
