@@ -6,6 +6,7 @@ import {
 // Data
 import data from '../../constants/brand';
 
+// BrandCardItem component
 import BrandCardItem from '../BrandCardItem';
 
 export default function Brand() {

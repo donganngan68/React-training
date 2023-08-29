@@ -3,6 +3,7 @@ import {
   Box, Text, Image, Button, Flex,
 } from '@chakra-ui/react';
 
+// Theme configuration
 import theme from '../../theme/index';
 
 export default function ProductCardItem(products = []) {

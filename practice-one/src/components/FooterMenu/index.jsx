@@ -2,6 +2,8 @@ import {
   Box, Grid, HStack, ListItem, Text, UnorderedList, Link,
 } from '@chakra-ui/react';
 import React from 'react';
+
+// Constant
 import constants from '../../constants';
 
 export default function FooterMenu() {

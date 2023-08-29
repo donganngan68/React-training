@@ -3,6 +3,7 @@ import {
   Box, Flex, Text, Image,
 } from '@chakra-ui/react';
 
+// Theme configuration
 import theme from '../../theme';
 
 // FooterMenu component

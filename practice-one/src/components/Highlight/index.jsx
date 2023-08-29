@@ -1,11 +1,16 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 
+// Container component
 import Container from '../Container';
+
+// Constant
 import constants from '../../constants';
+
+// Theme configuration
 import theme from '../../theme/index';
 
-export default function index() {
+export default function Highlight() {
   return (
     <Box backgroundImage={constants.images.highlight} height="lg" backgroundRepeat="no-repeat" backgroundSize="cover">
       <Container pt="28">
