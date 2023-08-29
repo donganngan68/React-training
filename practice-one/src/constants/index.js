@@ -4,6 +4,8 @@ import partners from './partners';
 import navSticky from './nav-sticky';
 import productCardItem from './product-card-item';
 import brand from './brand';
+import dataMenu from './menu-footer';
+import iconFooter from './icon-footer';
 
 export default {
   headerMenu,
@@ -12,4 +14,6 @@ export default {
   partners,
   productCardItem,
   brand,
+  dataMenu,
+  iconFooter,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Box, Flex, Heading, HStack, Text,
+  Box, Flex, Heading, HStack, Link,
 } from '@chakra-ui/react';
 
 // Container component
@@ -15,8 +15,8 @@ export default function Header() {
       <Container>
         <Flex alignItems="center" py="26px">
           <Heading fontSize="lg">Logo</Heading>
-          <HStack ml="56" spacing="6">
-            {constants.headerMenu.map((item) => <Text key={item}>{item}</Text>)}
+          <HStack ml="20" spacing="6">
+            {constants.headerMenu.map((item) => <Link href={item.href}>{item.name}</Link>)}
           </HStack>
         </Flex>
       </Container>

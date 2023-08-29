@@ -4,12 +4,14 @@ import Partners from './Partners';
 import Highlight from './Highlight';
 import ProductList from './ProductList';
 import Brand from './Brand';
+import Footer from './Footer';
 
-export default {
+export {
   StickyHeader,
   Header,
   Partners,
   Highlight,
   ProductList,
   Brand,
+  Footer,
 };

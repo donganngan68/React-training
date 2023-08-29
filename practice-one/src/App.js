@@ -6,21 +6,22 @@ import {
 // Theme
 import themeConfiguration from './theme';
 
-// Components
-import Components from './components';
+import {
+  StickyHeader, Header, Partners, Highlight, ProductList, Brand, Footer,
+} from './components/index';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
 function App() {
-  console.log(defaultTheme);
   return (
     <ChakraProvider theme={defaultTheme}>
-      <Components.StickyHeader />
-      <Components.Header />
-      <Components.Partners />
-      <Components.Highlight />
-      <Components.ProductList />
-      <Components.Brand />
+      <StickyHeader />
+      <Header />
+      <Partners />
+      <Highlight />
+      <ProductList />
+      <Brand />
+      <Footer />
     </ChakraProvider>
   );
 }
