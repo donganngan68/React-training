@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   Box, Text, Image, Button, Flex,
 } from '@chakra-ui/react';
@@ -9,7 +9,7 @@ import theme from '../../theme/index';
 export default function ProductCardItem(products = []) {
   const { product } = products;
   return (
-    <Box>
+    <>
       <Box key={product.id}>
         <Box pos="relative">
           <Image minWidth="2xs" w="100%" src={product.image} />
@@ -23,6 +23,6 @@ export default function ProductCardItem(products = []) {
           <Text color={theme.default.colors.primary}>{product.price}</Text>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 }
