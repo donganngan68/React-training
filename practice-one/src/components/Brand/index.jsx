@@ -2,24 +2,30 @@ import React from 'react';
 import {
   Box, Text, Grid, GridItem,
 } from '@chakra-ui/react';
-
-// Data
-import data from '../../constants/brand';
+import PropTypes from 'prop-types';
 
 // BrandCardItem component
 import { BrandCardItem } from '../BrandCardItem';
 
-export const Brand = () => (
+export const Brand = ({ brands }) => (
   <Box px="36" pt="24">
     <Text fontSize="2md" fontWeight="bold" textAlign="center" pb="10">Brand</Text>
     <Box>
       <Grid templateColumns="repeat(4, 1fr)">
-        {data.map((product) => (
-          <GridItem key={product.id}>
-            <BrandCardItem product={product} />
+        {brands.map((brand) => (
+          <GridItem key={brand.id}>
+            <BrandCardItem brand={brand} />
           </GridItem>
         ))}
       </Grid>
     </Box>
   </Box>
 );
+
+Brand.propTypes = {
+  brands: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    image: PropTypes.string,
+    name: PropTypes.string,
+  })).isRequired,
+};

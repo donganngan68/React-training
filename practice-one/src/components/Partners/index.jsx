@@ -2,17 +2,17 @@ import React from 'react';
 import {
   Box, Flex, HStack, Image,
 } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
+
+// Components
 import Container from '../Container';
 
-// Constants
-import constants from '../../constants';
-
-export const Partners = () => (
+export const Partners = ({ partners }) => (
   <Box pos="relative">
     <Container>
       <Flex pt="71" pb="21" justify-content="center">
         <HStack w="full" justify="space-around">
-          {constants.partners.map(({ logo, id, name }) => (
+          {partners.map(({ logo, id, name }) => (
             <Image key={id} src={logo} alt={name} />
           ))}
         </HStack>
@@ -20,3 +20,11 @@ export const Partners = () => (
     </Container>
   </Box>
 );
+
+Partners.propTypes = {
+  partners: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    logo: PropTypes.string,
+  })).isRequired,
+};

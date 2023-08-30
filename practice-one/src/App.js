@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ChakraProvider, extendTheme,
 } from '@chakra-ui/react';
@@ -6,22 +6,43 @@ import {
 // Theme
 import themeConfiguration from './theme';
 
+// Components
 import {
   StickyHeader, Header, Partners, Highlight, ProductList, Brand, Footer,
-} from './components/index';
+} from './components';
+
+// Helpers
+import { apiRequest } from './helpers';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
 function App() {
-  console.log(defaultTheme);
+  const [brands, setBrands] = useState([]);
+  const [partners, setPartners] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => () => {
+    const getData = async () => {
+      const brandData = await apiRequest({ apiName: 'brands' });
+      const partnersData = await apiRequest({ apiName: 'partners' });
+      const productsData = await apiRequest({ apiName: 'products' });
+
+      setPartners(partnersData);
+      setBrands(brandData);
+      setProducts(productsData);
+    };
+
+    getData();
+  }, []);
+
   return (
     <ChakraProvider theme={defaultTheme}>
       <StickyHeader />
       <Header />
-      <Partners />
+      <Partners partners={partners} />
       <Highlight />
-      <ProductList />
-      <Brand />
+      <ProductList products={products} />
+      <Brand brands={brands} />
       <Footer />
     </ChakraProvider>
   );

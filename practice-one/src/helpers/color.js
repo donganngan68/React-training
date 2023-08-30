@@ -1,3 +1,1 @@
-export const generateColor = () => {
-	return null;
-}
+export const generateColor = () => null;
