@@ -5,7 +5,7 @@ import {
 
 // BrandCardItem component
 import { BrandCardItem } from '../BrandCardItem';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../Hooks/useFetch';
 
 export const Brand = () => {
   const { data: brands, mutate } = useFetch({
