@@ -1,1 +1,5 @@
+# Cache
 .vercel
+
+# Packages
+**/node_modules

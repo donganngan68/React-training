@@ -1,0 +1,62 @@
+{
+  "products": [],
+  "partners": [
+    {
+      "id": 0,
+      "name": "Adidas",
+      "logo": "https://firebasestorage.googleapis.com/v0/b/web-training-7beb1.appspot.com/o/adidas.png?alt=media&token=5ce23183-2ed0-4be3-a36d-407a34bc73d3"
+    },
+    {
+      "id": 1,
+      "name": "Lacoste",
+      "logo": "https://firebasestorage.googleapis.com/v0/b/web-training-7beb1.appspot.com/o/lacoste.png?alt=media&token=9fddb655-e95a-48a8-8f0f-b7b1ffdd1f09"
+    },
+    {
+      "id": 2,
+      "name": "Puma",
+      "logo": "https://firebasestorage.googleapis.com/v0/b/web-training-7beb1.appspot.com/o/puma.png?alt=media&token=5cc1b6de-d1b9-4961-992d-e58049d150eb"
+    }
+  ],
+  "brands": [
+    {
+      "id": "0",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/T-shirt.png?alt=media&token=25644a6e-3825-44e8-8b2d-2abfe74c1cd3",
+      "name": "Ngan"
+    },
+    {
+      "id": "1",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/vest.png?alt=media&token=a5aef8cc-ad10-410c-a27a-913f2e5f703e",
+      "name": "This is new brand"
+    },
+    {
+      "id": "2",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/dress.png?alt=media&token=71f7ff39-ae4a-418d-a55f-6043b0c4c75f",
+      "name": "This is new brand"
+    },
+    {
+      "id": "3",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/sweater.png?alt=media&token=05ecc8e0-5bfb-47f7-809d-cabee7418f86",
+      "name": "This is new brand"
+    },
+    {
+      "id": "4",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/shirt.png?alt=media&token=75b0081d-781f-4d5a-8127-4ee3c045b6a0",
+      "name": "This is new brand"
+    },
+    {
+      "id": "5",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/flower-dress.png?alt=media&token=0c6f9fd7-bc72-4d1b-9a8d-356836836595",
+      "name": "This is new brand"
+    },
+    {
+      "id": "6",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/trousers.png?alt=media&token=c820c973-f052-4d47-ad9a-887065437b79",
+      "name": "This is new brand"
+    },
+    {
+      "id": "7",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/watch.png?alt=media&token=60150898-20e6-4580-9ef8-816be381873a",
+      "name": "This is new brand"
+    }
+  ]
+}
