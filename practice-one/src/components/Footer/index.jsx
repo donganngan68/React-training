@@ -10,7 +10,7 @@ import theme from '../../theme';
 import FooterMenu from '../FooterMenu';
 
 // Constants
-import constants from '../../constants';
+import { iconFooter } from '../../constants';
 
 export const Footer = () => (
   <Box w="100%" px="36" pt="16" bg="#e4e4e4">
@@ -30,7 +30,7 @@ export const Footer = () => (
         <Box>
           <Flex>
             <Text pr="12" fontSize="sm">Payment Partners</Text>
-            {constants.iconFooter.map(({ id, name, logo }) => (
+            {iconFooter.map(({ id, name, logo }) => (
               <Image pr="5" key={id} src={logo} alt={name} />
             ))}
           </Flex>

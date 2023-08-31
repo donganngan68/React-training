@@ -1,4 +1,4 @@
-const headerMenu = [
+export const headerMenu = [
   {
     id: 0,
     name: 'New',
@@ -35,5 +35,3 @@ const headerMenu = [
     href: '#sale',
   },
 ];
-
-export default headerMenu;

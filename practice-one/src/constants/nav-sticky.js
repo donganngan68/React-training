@@ -1,4 +1,4 @@
-const navSticky = [
+export const navSticky = [
   {
     id: 0,
     name: 'Shipping',

@@ -7,7 +7,10 @@ import PropTypes from 'prop-types';
 // Components
 import Container from '../Container';
 
-export const Partners = ({ partners }) => (
+// Constants
+import { partners } from '../../constants';
+
+export const Partners = () => (
   <Box pos="relative">
     <Container>
       <Flex pt="71" pb="21" justify-content="center">

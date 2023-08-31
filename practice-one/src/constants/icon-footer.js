@@ -1,4 +1,4 @@
-const iconFooter = [
+export const iconFooter = [
   {
     id: 0,
     name: 'Payment',
@@ -15,5 +15,3 @@ const iconFooter = [
     logo: 'https://firebasestorage.googleapis.com/v0/b/icon-foot.appspot.com/o/round.png?alt=media&token=3f09107f-5fbd-4f16-848e-d53a69fafc2a',
   },
 ];
-
-export default iconFooter;

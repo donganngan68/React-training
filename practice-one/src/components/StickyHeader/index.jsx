@@ -7,7 +7,7 @@ import {
 import Container from '../Container';
 
 // Constants
-import constants from '../../constants';
+import { navSticky } from '../../constants';
 
 export const StickyHeader = () => (
   <Box w="full" backgroundColor="primary">
@@ -22,7 +22,7 @@ export const StickyHeader = () => (
           <Link href="#learn-more" textDecoration="underline">Learn more</Link>
         </Text>
         <HStack>
-          {constants.navSticky.map(({ id, href, name }) => (
+          {navSticky.map(({ id, href, name }) => (
             <Link color="white" fontSize="sm" key={id} href={href}>{name}</Link>
           ))}
           <Text color="white" fontSize="sm">Eng | S &#709;</Text>
