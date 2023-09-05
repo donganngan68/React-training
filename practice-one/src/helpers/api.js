@@ -8,20 +8,19 @@ export const apiRequest = async (options) => {
   const fullAPIEndpoint = `${process.env.REACT_APP_API_ENDPOINT}${apiName}`;
 
   const isGetMethod = !options.method || options.method === APIMethods.Get;
+
   const requestOptions = !isGetMethod ? {
     method,
-    header: {
+    headers: {
       'Content-Type': 'application/json',
-      Accept: 'application/json',
       ...header,
     },
-    body,
+    body: JSON.stringify(body),
   } : {};
 
   try {
-    const request = await fetch(fullAPIEndpoint, requestOptions);
+    const request = await fetch(fullAPIEndpoint, method === 'DELETE' ? { method } : requestOptions);
     const dataResponse = await request.json();
-
     return dataResponse;
   } catch (error) {
     return Promise.resolve(defaultValue ?? null);

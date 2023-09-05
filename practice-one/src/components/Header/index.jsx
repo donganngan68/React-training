@@ -19,6 +19,7 @@ export const Header = () => (
             <Link key={id} href={href}>{name}</Link>
           ))}
         </HStack>
+        <Box w="54" />
       </Flex>
     </Container>
   </Box>

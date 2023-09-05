@@ -18,32 +18,40 @@ import { apiRequest } from './helpers';
 const defaultTheme = extendTheme(themeConfiguration.default);
 
 function App() {
-  const [brands, setBrands] = useState([]);
-  const [partners, setPartners] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [data, setData] = useState({
+    brands: [],
+    partners: [],
+    products: [],
+  });
+
+  const getData = async () => {
+    const brandData = await apiRequest({ apiName: 'brands' });
+    const partnersData = await apiRequest({ apiName: 'partners' });
+    const productsData = await apiRequest({ apiName: 'products' });
+
+    setData({
+      brands: brandData,
+      partners: partnersData,
+      products: productsData,
+    });
+  };
 
   useEffect(() => () => {
-    const getData = async () => {
-      const brandData = await apiRequest({ apiName: 'brands' });
-      const partnersData = await apiRequest({ apiName: 'partners' });
-      const productsData = await apiRequest({ apiName: 'products' });
-
-      setPartners(partnersData);
-      setBrands(brandData);
-      setProducts(productsData);
-    };
-
     getData();
   }, []);
+
+  const renderProduct = () => {
+    getData();
+  };
 
   return (
     <ChakraProvider theme={defaultTheme}>
       <StickyHeader />
       <Header />
-      <Partners partners={partners} />
+      <Partners partners={data.partners} />
       <Highlight />
-      <ProductList products={products} />
-      <Brand brands={brands} />
+      <ProductList products={data.products} submit={renderProduct} />
+      <Brand brands={data.brands} />
       <Footer />
     </ChakraProvider>
   );
