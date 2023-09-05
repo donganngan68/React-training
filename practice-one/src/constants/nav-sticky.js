@@ -15,5 +15,3 @@ export const navSticky = [
     href: '#contact',
   },
 ];
-
-export default navSticky;

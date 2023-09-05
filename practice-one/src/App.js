@@ -8,6 +8,7 @@ import themeConfiguration from './theme';
 
 // Components
 import {
+  // eslint-disable-next-line no-unused-vars
   StickyHeader, Header, Partners, Highlight, ProductList, Brand, Footer,
 } from './components';
 
