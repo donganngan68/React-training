@@ -24,20 +24,8 @@
       "title": "Lacoste",
       "price": 89
     },
-{
+    {
       "id": 4,
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
-      "title": "Lacoste",
-      "price": 89
-    },
-    {
-      "id": 5,
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
-      "title": "Lacoste",
-      "price": 89
-    },
-    {
-      "id": 6,
       "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
       "title": "Lacoste",
       "price": 89
@@ -47,6 +35,18 @@
       "price": 100,
       "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
       "id": 7
+    },
+    {
+      "title": "Idol",
+      "price": 777,
+      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
+      "id": 9
+    },
+    {
+      "title": "Adidas",
+      "price": 68,
+      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
+      "id": 10
     }
   ],
   "partners": [

@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   GridItem,
-  Box, Text, Image, Button, Flex,
+  Box, Text, Image, Button, Flex, Modal, ModalOverlay,
+  ModalContent, ModalHeader, ModalCloseButton, ModalFooter, useDisclosure,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
@@ -12,6 +13,7 @@ export const ProductCard = ({
     id, image, price, title,
   }, deleteRow,
 }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const deleteProduct = (i) => {
     const deleteData = async () => {
       await apiRequest({ method: 'DELETE', apiName: `products/${i}` });
@@ -31,15 +33,32 @@ export const ProductCard = ({
               <Button w="28" h="7" mr="3.5" fontSize="md">
                 Show more
               </Button>
-              <Button w="28" h="7" fontSize="md" opacity="0.5" bg="red" onClick={() => deleteProduct(id)}>Delete</Button>
+              <Button w="28" h="7" fontSize="md" opacity="0.5" bg="red" onClick={onOpen}>Delete</Button>
             </Flex>
           </Box>
           <Box pt="4" textAlign="center">
             <Text>{title}</Text>
-            <Text color="primary">{price}</Text>
+            <Text color="primary">
+              $
+              {price}
+            </Text>
           </Box>
         </Box>
       </GridItem>
+
+      <Modal height="18" isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Do you want to delete this product?</ModalHeader>
+          <ModalCloseButton />
+          <ModalFooter>
+            <Button h="10" mr={3} onClick={() => deleteProduct(id)}>
+              Confirm
+            </Button>
+            <Button h="10" onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };
