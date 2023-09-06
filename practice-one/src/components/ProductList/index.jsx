@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import {
   Box, Button, Input, Text, Flex, Grid, useDisclosure, Modal,
   ModalOverlay,
@@ -14,6 +15,7 @@ import {
 import PropTypes from 'prop-types';
 
 // ProductCard component
+
 import { ProductCard } from '../ProductCard';
 
 //  ApiRequest function
@@ -28,6 +30,8 @@ export const ProductList = ({ products, submit }) => {
     description: '',
     image: '',
   });
+  const [search, setSearch] = useState('');
+  const [listSearch, setListSearch] = useState([]);
 
   const handleChange = (e) => {
     setFormProduct({
@@ -40,8 +44,7 @@ export const ProductList = ({ products, submit }) => {
     const getData = async () => {
       const newForm = {
         ...formProduct,
-        // price: Number(formProduct.price),
-        image: 'https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541',
+        price: Number(formProduct.price),
       };
 
       await apiRequest({ method: 'POST', body: newForm, apiName: 'products' });
@@ -63,6 +66,12 @@ export const ProductList = ({ products, submit }) => {
     submit();
   };
 
+  useEffect(() => {
+    setListSearch(products.filter((i) => (
+      (i.title).toLocaleLowerCase() === search.toLocaleLowerCase()
+    )));
+  }, [search]);
+
   return (
     <>
       <Box mx="36" pt="24">
@@ -71,11 +80,20 @@ export const ProductList = ({ products, submit }) => {
           <Text fontSize="2md" fontWeight="bold">Best Weekend Sellers</Text>
         </Box>
         <Flex justify="space-between" pb="10">
-          <Input variant="filled" w="96" size="lg" placeholder="Searching" />
+          <Input
+            variant="filled"
+            w="96"
+            size="lg"
+            placeholder="Searching"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
           <Button variant="solid" onClick={onOpen}>Add New Product</Button>
         </Flex>
         <Grid templateColumns="repeat(4, 1fr)" gridColumnGap="5" gridRowGap="6">
-          {products.map((product) => (
+          {listSearch.length === 0 ? products.map((product) => (
+            <ProductCard key={product.id} product={product} deleteRow={handleDeleteRow} />
+          )) : listSearch.map((product) => (
             <ProductCard key={product.id} product={product} deleteRow={handleDeleteRow} />
           ))}
         </Grid>

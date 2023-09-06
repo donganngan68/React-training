@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
+import {
   ChakraProvider, extendTheme,
 } from '@chakra-ui/react';
 
@@ -8,7 +13,7 @@ import themeConfiguration from './theme';
 
 // Components
 import {
-  StickyHeader, Header, Partners, Highlight, ProductList, Brand, Footer,
+  StickyHeader, Header, Partners, Highlight, ProductList, Brand, Footer, DetailProduct,
 } from './components';
 
 // Helpers
@@ -44,15 +49,32 @@ function App() {
   };
 
   return (
-    <ChakraProvider theme={defaultTheme}>
-      <StickyHeader />
-      <Header />
-      <Partners partners={data.partners} />
-      <Highlight />
-      <ProductList products={data.products} submit={renderProduct} />
-      <Brand brands={data.brands} />
-      <Footer />
-    </ChakraProvider>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <ChakraProvider theme={defaultTheme}>
+              <StickyHeader />
+              <Header />
+              <Partners partners={data.partners} />
+              <Highlight />
+              <ProductList products={data.products} submit={renderProduct} />
+              <Brand brands={data.brands} />
+              <Footer />
+            </ChakraProvider>
+      )}
+        />
+        <Route
+          path="/detail/:id"
+          element={(
+            <ChakraProvider theme={defaultTheme}>
+              <DetailProduct products={data.products} />
+            </ChakraProvider>
+      )}
+        />
+      </Routes>
+    </Router>
   );
 }
 

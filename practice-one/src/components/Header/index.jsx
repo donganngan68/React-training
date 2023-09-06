@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  Box, Flex, Heading, HStack, Link,
+  Box, Flex, Heading, HStack,
 } from '@chakra-ui/react';
-
+import { Link } from 'react-router-dom';
 // Container component
 import Container from '../Container';
 
@@ -13,10 +13,14 @@ export const Header = () => (
   <Box backgroundImage={images.headerBackgound} minH="4xl" backgroundRepeat="no-repeat" backgroundSize="cover">
     <Container>
       <Flex alignItems="center" py="26px">
-        <Heading fontSize="lg">Logo</Heading>
+        <Heading fontSize="lg">
+          <Link to="/">
+            Logo
+          </Link>
+        </Heading>
         <HStack ml="20" spacing="6">
           {headerMenu.map(({ id, name, href }) => (
-            <Link key={id} href={href}>{name}</Link>
+            <Link key={id} to={href}>{name}</Link>
           ))}
         </HStack>
         <Box w="54" />

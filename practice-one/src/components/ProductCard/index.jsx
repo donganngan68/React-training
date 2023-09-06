@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import { apiRequest } from '../../helpers';
 
 export const ProductCard = ({
@@ -31,7 +32,9 @@ export const ProductCard = ({
             <Image minWidth="2xs" w="100%" src={image} />
             <Flex px="2.5" pos="absolute" bottom="3%">
               <Button w="28" h="7" mr="3.5" fontSize="md">
-                Show more
+                <Link to={`/detail/${id}`}>
+                  Show more
+                </Link>
               </Button>
               <Button w="28" h="7" fontSize="md" opacity="0.5" bg="red" onClick={onOpen}>Delete</Button>
             </Flex>
