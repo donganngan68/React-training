@@ -16,14 +16,16 @@ import PropTypes from 'prop-types';
 // ProductCard component
 import { ProductCard } from '../ProductCard';
 
+//  ApiRequest function
 import { apiRequest } from '../../helpers';
 
-// eslint-disable-next-line no-unused-vars
 export const ProductList = ({ products, submit }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const [formProduct, setFormProduct] = useState({
     title: '',
     price: '',
+    description: '',
     image: '',
   });
 
@@ -34,13 +36,11 @@ export const ProductList = ({ products, submit }) => {
     });
   };
 
-  console.log(formProduct.image);
-
   const submitForm = () => {
     const getData = async () => {
       const newForm = {
         ...formProduct,
-        price: Number(formProduct.price),
+        // price: Number(formProduct.price),
         image: 'https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541',
       };
 
@@ -51,6 +51,7 @@ export const ProductList = ({ products, submit }) => {
     setFormProduct({
       title: '',
       price: '',
+      description: '',
       image: '',
     });
 

@@ -11,3 +11,5 @@ export * from './Footer';
 export * from './Partners';
 
 export * from './Brand';
+
+export * from './DetailProduct';
