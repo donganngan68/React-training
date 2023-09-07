@@ -35,9 +35,7 @@ export const DetailProduct = ({ products }) => {
               <Image w="100%" src={itemDetail?.image} />
               <Text mt="14" mb="8" textDecor="underline">Description</Text>
               <Text fontSize="sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quae amet repellat natus nostrum nobis dicta delectus at expedita sed
-                alias ipsum unde harum magni totam vitae saepe dolores, sit omnis.
+                {itemDetail?.description}
               </Text>
             </Box>
             <Box>

@@ -18,7 +18,7 @@ export const Header = () => (
             Logo
           </Link>
         </Heading>
-        <HStack ml="20" spacing="6">
+        <HStack pl="56" spacing="6">
           {headerMenu.map(({ id, name, href }) => (
             <Link key={id} to={href}>{name}</Link>
           ))}

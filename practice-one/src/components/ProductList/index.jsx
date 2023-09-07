@@ -13,7 +13,6 @@ import PropTypes from 'prop-types';
 
 import { ProductCard } from '../ProductCard';
 
-//  ApiRequest function
 // ApiRequest function
 import { apiRequest } from '../../helpers';
 
@@ -27,27 +26,31 @@ export const ProductList = ({ products, submit }) => {
     image: '',
   };
   const [formProduct, setFormProduct] = useState(initialFormProduct);
+  const [formErrors, setFormErrors] = useState({});
   const [search, setSearch] = useState('');
   const [listSearch, setListSearch] = useState([]);
-  const [formErrors, setFormErrors] = useState({});
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     // Clear the error message for the current field when it's changed
     setFormErrors((prevErrors) => ({
       ...prevErrors,
       [name]: '',
     }));
+
     setFormProduct({
       ...formProduct,
       [name]: value,
     });
   };
 
+  // Validate form
   const validateForm = () => {
     const errors = {};
     const {
       title, price, description, image,
     } = formProduct;
+
     if (!title) errors.title = 'Product name is required.';
     if (!price) errors.price = 'Product price is required.';
     if (!description) errors.description = 'Product description is required.';
@@ -55,31 +58,34 @@ export const ProductList = ({ products, submit }) => {
     setFormErrors(errors);
     return Object.keys(errors).length === 0; // Form is valid if errors object is empty
   };
+
+  // Close modal
   const handleCloseModal = () => {
     onClose();
     setFormProduct(initialFormProduct);
     setFormErrors({});
   };
+
+  // Submit Form
   const submitForm = async () => {
     if (validateForm()) {
       const newForm = {
         ...formProduct,
         price: Number(formProduct.price),
-        image: 'https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541',
       };
       await apiRequest({ method: 'POST', body: newForm, apiName: 'products' });
+      setFormProduct({
+        title: '',
+        price: '',
+        description: '',
+        image: '',
+      });
+      handleCloseModal();
+      submit();
     }
-    getData();
-
-    setFormProduct({
-      title: '',
-      price: '',
-      image: '',
-    });
-
-    onClose();
-    submit();
   };
+
+  // Delete product
   const handleDeleteRow = () => {
     submit();
   };
@@ -89,6 +95,7 @@ export const ProductList = ({ products, submit }) => {
       (i.title).toLocaleLowerCase() === search.toLocaleLowerCase()
     )));
   }, [search]);
+
   return (
     <>
       <Box mx="36" pt="24">
@@ -121,33 +128,41 @@ export const ProductList = ({ products, submit }) => {
           ))}
         </Grid>
       </Box>
+
+      {/* Modal add new product */}
       <Modal isOpen={isOpen} onClose={handleCloseModal}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Add New Product</ModalHeader>
+
           <ModalCloseButton />
+
           <ModalBody pb={6}>
             <FormControl isInvalid={!!formErrors.title}>
               <FormLabel>Product Name</FormLabel>
               <Input name="title" value={formProduct.title} onChange={handleChange} placeholder="Product name" />
               <FormErrorMessage>{formErrors.title}</FormErrorMessage>
             </FormControl>
+
             <FormControl mt={4} isInvalid={!!formErrors.price}>
               <FormLabel>Product Price</FormLabel>
               <Input type="number" name="price" value={formProduct.price} onChange={handleChange} placeholder="Product price" />
               <FormErrorMessage>{formErrors.price}</FormErrorMessage>
             </FormControl>
+
             <FormControl mt={4} isInvalid={!!formErrors.description}>
               <FormLabel>Product Description</FormLabel>
               <Textarea placeholder="Product description" name="description" value={formProduct.description} onChange={handleChange} />
               <FormErrorMessage>{formErrors.description}</FormErrorMessage>
             </FormControl>
+
             <FormControl mt={4} isInvalid={!!formErrors.image}>
               <FormLabel>Product Image</FormLabel>
               <Input name="image" value={formProduct.image} onChange={handleChange} placeholder="Product image" />
               <FormErrorMessage>{formErrors.image}</FormErrorMessage>
             </FormControl>
           </ModalBody>
+
           <ModalFooter>
             <Button h="10" mr={3} onClick={submitForm}>
               Confirm
@@ -156,6 +171,7 @@ export const ProductList = ({ products, submit }) => {
               Cancel
             </Button>
           </ModalFooter>
+
         </ModalContent>
       </Modal>
     </>
