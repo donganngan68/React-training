@@ -1,7 +1,9 @@
+import React from 'react';
+
+// Libraries from Chakra UI
 import {
   Box, Grid, HStack, ListItem, Text, UnorderedList, Link,
 } from '@chakra-ui/react';
-import React from 'react';
 
 // Constant
 import { dataMenu } from '../../constants';

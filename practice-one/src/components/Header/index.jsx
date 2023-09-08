@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// Libraries from Chakra UI
 import {
   Box, Flex, Heading, HStack,
 } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+
 // Container component
 import Container from '../Container';
 

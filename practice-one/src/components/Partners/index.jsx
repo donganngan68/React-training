@@ -1,14 +1,14 @@
 import React from 'react';
+
+// Libraries from Chakra UI and PropTypes
 import {
   Box, Flex, HStack, Image,
 } from '@chakra-ui/react';
+
 import PropTypes from 'prop-types';
 
 // Components
 import Container from '../Container';
-
-// Constants
-// import { partners } from '../../constants';
 
 export const Partners = ({ partners }) => (
   <Box pos="relative">

@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Libraries from Chakra UI
 import {
   Box, Text, HStack, Link,
 } from '@chakra-ui/react';

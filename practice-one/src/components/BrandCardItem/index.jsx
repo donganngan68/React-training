@@ -1,7 +1,10 @@
 import React from 'react';
+
+// Libraries from Chakra UI and PropTypes
 import {
   Box, Image, Text,
 } from '@chakra-ui/react';
+
 import PropTypes from 'prop-types';
 
 export const BrandCardItem = ({ brand: { id, image, name } }) => (

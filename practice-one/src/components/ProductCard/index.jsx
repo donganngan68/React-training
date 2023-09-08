@@ -1,12 +1,17 @@
 import React from 'react';
+
+// Libraries from Chakra UI and PropTypes
 import {
   GridItem,
   Box, Text, Image, Button, Flex, Modal, ModalOverlay,
   ModalContent, ModalHeader, ModalCloseButton, ModalFooter, useDisclosure,
 } from '@chakra-ui/react';
+
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
+
+// ApiRequest
 import { apiRequest } from '../../helpers';
 
 export const ProductCard = ({

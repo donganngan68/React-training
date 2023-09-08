@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Libraries from Chakra UI
 import {
   Box, Flex, Text, Image,
 } from '@chakra-ui/react';

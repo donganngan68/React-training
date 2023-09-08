@@ -1,15 +1,21 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// Libraries from Chakra UI and PropTypes
 import {
   Box, Flex, HStack, Heading, Image, Text, Button,
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton,
   ModalBody, FormControl, FormLabel, Input, Textarea, ModalFooter, useDisclosure,
 } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+
 import PropTypes from 'prop-types';
+
+// Components
 import { Footer } from '../Footer';
 import { headerMenu } from '../../constants';
 import Container from '../Container';
 
+// ApiRequest
 import { apiRequest } from '../../helpers';
 
 export const DetailProduct = ({ products, submit }) => {

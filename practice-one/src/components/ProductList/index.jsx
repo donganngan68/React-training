@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+// Libraries from Chakra UI and PropTypes
 import {
   Box, Button, Input, Text,
   Flex, Grid, useDisclosure, Modal, ModalOverlay,
@@ -10,10 +11,9 @@ import {
 import PropTypes from 'prop-types';
 
 // ProductCard component
-
 import { ProductCard } from '../ProductCard';
 
-// ApiRequest function
+// ApiRequest
 import { apiRequest } from '../../helpers';
 
 export const ProductList = ({ products, submit }) => {

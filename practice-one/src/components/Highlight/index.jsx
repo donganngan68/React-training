@@ -1,5 +1,7 @@
-import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
+
+// Libraries from Chakra UI
+import { Box, Text } from '@chakra-ui/react';
 
 // Container component
 import Container from '../Container';
