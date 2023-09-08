@@ -28,7 +28,7 @@ export const Footer = () => (
     </Flex>
     <Box py="10">
       <Flex justify="space-between">
-        <Text fontSize="sm">@2023 All rights reserved. Designed by Brand</Text>
+        <Text fontSize="sm">&#64; 2023 All rights reserved. Designed by Brand</Text>
         <Box>
           <Flex>
             <Text pr="12" fontSize="sm">Payment Partners</Text>
