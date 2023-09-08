@@ -69,7 +69,7 @@ function App() {
           path="/detail/:id"
           element={(
             <ChakraProvider theme={defaultTheme}>
-              <DetailProduct products={data.products} />
+              <DetailProduct products={data.products} submit={renderProduct} />
             </ChakraProvider>
       )}
         />

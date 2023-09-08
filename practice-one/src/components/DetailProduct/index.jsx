@@ -4,17 +4,53 @@ import {
   ModalBody, FormControl, FormLabel, Input, Textarea, ModalFooter, useDisclosure,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Footer } from '../Footer';
 import { headerMenu } from '../../constants';
 import Container from '../Container';
 
-export const DetailProduct = ({ products }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const idDetail = window.location.pathname.split('/')[2];
+import { apiRequest } from '../../helpers';
 
+export const DetailProduct = ({ products, submit }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const idDetail = window.location.pathname.split('/')[2];
   const itemDetail = products.find((i) => i.id === Number(idDetail));
+
+  const [formProduct, setFormProduct] = useState({});
+
+  const initialFormProduct = {
+    title: itemDetail?.title,
+    price: itemDetail?.price,
+    description: itemDetail?.description,
+    image: itemDetail?.image,
+  };
+
+  useEffect(() => {
+    setFormProduct(initialFormProduct);
+  }, [products]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormProduct({
+      ...formProduct,
+      [name]: value,
+    });
+  };
+
+  const submitForm = async () => {
+    const newForm = {
+      ...formProduct,
+      price: Number(formProduct.price),
+    };
+    await apiRequest({
+      method: 'PUT', body: newForm, apiName: `products/${idDetail}`,
+    });
+    onClose();
+    submit();
+  };
 
   return (
     <>
@@ -65,6 +101,8 @@ export const DetailProduct = ({ products }) => {
               <FormLabel>Product Name</FormLabel>
               <Input
                 name="title"
+                value={formProduct.title}
+                onChange={handleChange}
                 placeholder="Product name"
               />
             </FormControl>
@@ -74,6 +112,8 @@ export const DetailProduct = ({ products }) => {
               <Input
                 type="number"
                 name="price"
+                value={formProduct.price}
+                onChange={handleChange}
                 placeholder="Product price"
               />
             </FormControl>
@@ -81,7 +121,10 @@ export const DetailProduct = ({ products }) => {
             <FormControl mt={4}>
               <FormLabel>Product Description</FormLabel>
               <Textarea
+                name="description"
                 placeholder="Product description"
+                value={formProduct.description}
+                onChange={handleChange}
               />
             </FormControl>
 
@@ -89,13 +132,15 @@ export const DetailProduct = ({ products }) => {
               <FormLabel>Product Image</FormLabel>
               <Input
                 name="image"
+                value={formProduct.image}
+                onChange={handleChange}
                 placeholder="Product image"
               />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button h="10" mr={3}>
+            <Button h="10" mr={3} onClick={submitForm}>
               Confirm
             </Button>
             <Button h="10" onClick={onClose}>Cancel</Button>
@@ -114,4 +159,5 @@ DetailProduct.propTypes = {
     title: PropTypes.string,
     price: PropTypes.number,
   })).isRequired,
+  submit: PropTypes.func.isRequired,
 };

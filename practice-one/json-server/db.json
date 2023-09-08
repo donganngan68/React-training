@@ -7,10 +7,11 @@
       "price": 89
     },
     {
-      "id": 3,
+      "title": "Lacoste 2",
+      "price": 892,
+      "description": "This product is the best seller",
       "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
-      "title": "Lacoste",
-      "price": 89
+      "id": 3
     },
     {
       "title": "Nike",
@@ -33,18 +34,11 @@
       "id": 11
     },
     {
-      "title": "Jean",
-      "price": 2100,
-      "description": "High fashion",
+      "title": "Dress",
+      "price": 22000,
+      "description": "High fashion, flowers, material",
       "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/flower-dress.png?alt=media&token=0c6f9fd7-bc72-4d1b-9a8d-356836836595",
       "id": 12
-    },
-    {
-      "title": "White Jean",
-      "price": 55,
-      "description": "fghjhgfc",
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
-      "id": 13
     }
   ],
   "partners": [
