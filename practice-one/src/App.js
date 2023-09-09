@@ -17,7 +17,7 @@ import {
 } from './components';
 
 // Helpers
-import { apiRequest } from './helpers';
+import { apiRequest } from './services';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 

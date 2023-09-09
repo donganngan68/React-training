@@ -13,7 +13,7 @@ import Container from '../Container';
 import { Header } from '../Header';
 
 // ApiRequest
-import { apiRequest } from '../../helpers';
+import { apiRequest } from '../../services';
 
 export const DetailProduct = ({ products, submit }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

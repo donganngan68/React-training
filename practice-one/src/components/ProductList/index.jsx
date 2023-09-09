@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { ProductCard } from '../ProductCard';
 
 // ApiRequest
-import { apiRequest } from '../../helpers';
+import { apiRequest } from '../../services';
 
 export const ProductList = ({ products, submit }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

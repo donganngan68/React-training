@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // ApiRequest
-import { apiRequest } from '../../helpers';
+import { apiRequest } from '../../services';
 
 export const ProductCard = ({
   product: {
