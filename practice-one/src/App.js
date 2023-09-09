@@ -49,32 +49,33 @@ function App() {
   };
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <ChakraProvider theme={defaultTheme}>
-              <StickyHeader />
-              <Header />
-              <Partners partners={data.partners} />
-              <Highlight />
-              <ProductList products={data.products} submit={renderProduct} />
-              <Brand brands={data.brands} />
-              <Footer />
-            </ChakraProvider>
-      )}
-        />
-        <Route
-          path="/detail/:id"
-          element={(
-            <ChakraProvider theme={defaultTheme}>
+    <ChakraProvider theme={defaultTheme}>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={(
+              <>
+                <StickyHeader />
+                <Header />
+                <Partners partners={data.partners} />
+                <Highlight />
+                <ProductList products={data.products} submit={renderProduct} />
+                <Brand brands={data.brands} />
+                <Footer />
+              </>
+            )}
+          />
+
+          <Route
+            path="/detail/:id"
+            element={(
               <DetailProduct products={data.products} submit={renderProduct} />
-            </ChakraProvider>
-      )}
-        />
-      </Routes>
-    </Router>
+            )}
+          />
+        </Routes>
+      </Router>
+    </ChakraProvider>
   );
 }
 

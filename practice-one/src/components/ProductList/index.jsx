@@ -177,6 +177,7 @@ export const ProductList = ({ products, submit }) => {
     </>
   );
 };
+
 ProductList.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({

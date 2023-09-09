@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-// Libraries from Chakra UI and PropTypes
 import {
-  Box, Flex, HStack, Heading, Image, Text, Button,
+  Box, Flex, Image, Text, Button,
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton,
   ModalBody, FormControl, FormLabel, Input, Textarea, ModalFooter, useDisclosure,
 } from '@chakra-ui/react';
@@ -12,8 +9,8 @@ import PropTypes from 'prop-types';
 
 // Components
 import { Footer } from '../Footer';
-import { headerMenu } from '../../constants';
 import Container from '../Container';
+import { Header } from '../Header';
 
 // ApiRequest
 import { apiRequest } from '../../helpers';
@@ -60,42 +57,31 @@ export const DetailProduct = ({ products, submit }) => {
 
   return (
     <>
-      <Box>
-        <Container>
-          <Flex alignItems="center" py="26px">
-            <Heading mr="60" fontSize="lg">
-              <Link to="/">Logo</Link>
-            </Heading>
-            <HStack ml="20" spacing="6">
-              {headerMenu.map(({ id, name, href }) => (
-                <Link key={id} to={href}>{name}</Link>
-              ))}
-            </HStack>
-          </Flex>
-          <Flex pt="14">
-            <Box mb="10" mr="24">
-              <Image w="100%" src={itemDetail?.image} />
-              <Text mt="14" mb="8" textDecor="underline">Description</Text>
-              <Text fontSize="sm">
-                {itemDetail?.description}
-              </Text>
-            </Box>
-            <Box>
-              <Text fontWeight="bold" fontSize="2md" fontFamily="secondary">
-                {itemDetail?.title}
-              </Text>
-              <Text my="5" color="primary" fontWeight="semibold">
-                $
-                {itemDetail?.price}
-              </Text>
-              <Button w="80" onClick={onOpen}>
-                Edit
-              </Button>
-            </Box>
-          </Flex>
-        </Container>
-        <Footer />
-      </Box>
+      <Container>
+        <Header isShowBackground={false} />
+        <Flex pt="14">
+          <Box mb="10" mr="24">
+            <Image w="100%" src={itemDetail?.image} />
+            <Text mt="14" mb="8" textDecor="underline">Description</Text>
+            <Text fontSize="sm">
+              {itemDetail?.description}
+            </Text>
+          </Box>
+          <Box>
+            <Text fontWeight="bold" fontSize="2md" fontFamily="secondary">
+              {itemDetail?.title}
+            </Text>
+            <Text my="5" color="primary" fontWeight="semibold">
+              $
+              {itemDetail?.price}
+            </Text>
+            <Button w="80" onClick={onOpen}>
+              Edit
+            </Button>
+          </Box>
+        </Flex>
+      </Container>
+      <Footer />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

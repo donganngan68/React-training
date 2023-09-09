@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Libraries from Chakra UI
 import {
@@ -12,8 +13,12 @@ import Container from '../Container';
 // Constants
 import { images, headerMenu } from '../../constants';
 
-export const Header = () => (
-  <Box backgroundImage={images.headerBackgound} minH="4xl" backgroundRepeat="no-repeat" backgroundSize="cover">
+export const Header = ({ isShowBackground }) => (
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundSize="cover"
+    {...(isShowBackground ? { backgroundImage: images.headerBackgound, minH: '4xl' } : {})}
+  >
     <Container>
       <Flex alignItems="center" py="26px">
         <Heading fontSize="lg">
@@ -31,3 +36,11 @@ export const Header = () => (
     </Container>
   </Box>
 );
+
+Header.propTypes = {
+  isShowBackground: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  isShowBackground: true,
+};
