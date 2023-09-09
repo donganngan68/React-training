@@ -1,23 +1,38 @@
+# React training - Practice one
+
+This application is using React to a web application Fashion application
+
 # Targets:
+
 - Apply the knowledge after reading ReactJS document
-- Setup & build a React app with base structure
+- Setup & build a React app
 - Split & build component can reusable
 - Use hooks
+
 # Design on figma:
-- [Figma](https://www.figma.com/file/fUcQdAfBkMyW7KaJ5b7VeT/Duplicate-Fashion-Ecommerce?mode=dev)
+
+- Design via [Figma](https://www.figma.com/file/fUcQdAfBkMyW7KaJ5b7VeT/Duplicate-Fashion-Ecommerce?mode=dev)
+
 # Information:
+
 - Editor: Visual Studio Code
+
 # Team size:
-- 1 dev: Ngan Do
+
+- Ngan Do <[dongangan68@gmail.com](dongangan68@gmail.com)>
+
 # Folder structure
+
 ```
+├── json-server
 ├── public
+├── src
+    ├── assets
     ├── components
     ├── constants
     ├── helpers
     ├── services
     ├── theme
-    ├── .editorconfig
     ├── App.js
     └── index.js
 ├── .gitignore
@@ -25,28 +40,34 @@
 ├── README.md
 └── yarn.lock
 ```
+
 # Getting started:
-Step 01: Clone repository with SSH:
+
+Step by step to get started this app at your location
+
+## Clone repository with SSH:
+
 ```bash
 git clone git@github.com:donganngan68/react-training.git
 ```
-Step 02: Change to branch feat/big-practice:
+
+## Install necessary packages:
+
+Make sure you are stay at the root of application (`practice-one`), execute the command
+to install package dependencies
+
 ```bash
-git checkout dev
-git checkout feat/practice-one
+yarn run init
 ```
-Step 03: Move to folder which just cloned in your computer:
-```bash
-cd react-training
-```
-Step 04: Next open folder big-practice
-```bash
-cd practice-one
-```
-Step 05: Open terminal and type:
-```bash
-yarn install
-```
-Step 06: Finally run with:
+
+## Start the web server:
+
+Execute the following command to start the web server and json-server
+
 ```bash
 yarn start
+```
+
+Happy path: Open the web server http://localhost:3000
+
+_Note that the default port is 3000, you can custom it!_
