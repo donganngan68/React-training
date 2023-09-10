@@ -2,16 +2,10 @@
   "products": [
     {
       "title": "Lacoste",
-      "price": 89,
+      "price": 1000,
+      "description": "fgdfgdf",
       "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
       "id": 2
-    },
-    {
-      "title": "Lacoste 2",
-      "price": 892,
-      "description": "This product is the best seller",
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
-      "id": 3
     },
     {
       "title": "Nike",
@@ -21,24 +15,10 @@
     },
     {
       "title": "Dress",
-      "price": 202,
-      "description": "Dresss",
-      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/sweater.png?alt=media&token=05ecc8e0-5bfb-47f7-809d-cabee7418f86",
-      "id": 10
-    },
-    {
-      "title": "hi",
-      "price": 345,
-      "description": "hi",
-      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/T-shirt.png?alt=media&token=25644a6e-3825-44e8-8b2d-2abfe74c1cd3",
-      "id": 11
-    },
-    {
-      "title": "Dress",
-      "price": 22000,
-      "description": "High fashion, flowers, material",
-      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/flower-dress.png?alt=media&token=0c6f9fd7-bc72-4d1b-9a8d-356836836595",
-      "id": 12
+      "price": 323423,
+      "description": "dfgdfg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/shirt.png?alt=media&token=75b0081d-781f-4d5a-8127-4ee3c045b6a0",
+      "id": 9
     }
   ],
   "partners": [

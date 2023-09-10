@@ -1,14 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {
+  useCallback, useContext, useEffect, useState,
+} from 'react';
 import {
-  Box, Flex, Image, Text, Button,
-  Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton,
-  ModalBody, FormControl, FormLabel, Input, Textarea, ModalFooter, useDisclosure,
+  Box, Flex, Image, Text, Button, useDisclosure,
 } from '@chakra-ui/react';
 
 // Components
-import { Footer } from '../components/Footer';
+import {
+  Footer, Header, ProductModal,
+} from '../components';
+
 import Container from '../components/Container';
-import { Header } from '../components/Header';
 
 // ApiRequest
 import { apiRequest } from '../services';
@@ -22,6 +24,7 @@ const ProductDetailPage = () => {
   const itemDetail = products.find((i) => i.id === Number(idDetail));
 
   const [formProduct, setFormProduct] = useState({});
+  const [formErrors, setFormErrors] = useState({});
 
   const initialFormProduct = {
     title: itemDetail?.title,
@@ -34,27 +37,56 @@ const ProductDetailPage = () => {
     setFormProduct(initialFormProduct);
   }, [products]);
 
-  const handleChange = (e) => {
+  // Validate form
+  const validateForm = useCallback(
+    () => {
+      const errors = {};
+
+      Object.keys(formProduct).forEach((field) => {
+        if (!formProduct[field]) {
+          errors[field] = `Product ${field} is required.`;
+        } else {
+          delete errors[field];
+        }
+      });
+
+      setFormErrors(errors);
+
+      return !Object.keys(errors).length;
+    },
+    [setFormErrors, formProduct],
+  );
+
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
 
     setFormProduct({
       ...formProduct,
       [name]: value,
     });
+  }, [formProduct]);
+
+  // Close modal
+  const handleCloseModal = () => {
+    onClose();
+    setFormProduct(initialFormProduct);
+    setFormErrors({});
   };
 
-  const submitForm = async () => {
-    const newForm = {
-      ...formProduct,
-      price: Number(formProduct.price),
-    };
-    await apiRequest({
-      method: 'PUT', body: newForm, apiName: `products/${idDetail}`,
-    });
-    onClose();
-    const productsData = await apiRequest({ apiName: 'products' });
+  const handleSubmitProduct = async () => {
+    if (validateForm()) {
+      const newForm = {
+        ...formProduct,
+        price: Number(formProduct.price),
+      };
+      await apiRequest({ method: 'PUT', body: newForm, apiName: `products/${idDetail}` });
 
-    setProducts(productsData);
+      setFormProduct(initialFormProduct);
+      handleCloseModal();
+      // Re-fetch & update products list
+      const productsData = await apiRequest({ apiName: 'products' });
+      setProducts(productsData);
+    }
   };
 
   return (
@@ -85,62 +117,18 @@ const ProductDetailPage = () => {
       </Container>
       <Footer />
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Edit Information Product</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>Product Name</FormLabel>
-              <Input
-                name="title"
-                value={formProduct.title}
-                onChange={handleChange}
-                placeholder="Product name"
-              />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Product Price</FormLabel>
-              <Input
-                type="number"
-                name="price"
-                value={formProduct.price}
-                onChange={handleChange}
-                placeholder="Product price"
-              />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Product Description</FormLabel>
-              <Textarea
-                name="description"
-                placeholder="Product description"
-                value={formProduct.description}
-                onChange={handleChange}
-              />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Product Image</FormLabel>
-              <Input
-                name="image"
-                value={formProduct.image}
-                onChange={handleChange}
-                placeholder="Product image"
-              />
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button h="10" mr={3} onClick={submitForm}>
-              Confirm
-            </Button>
-            <Button h="10" onClick={onClose}>Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      {isOpen
+      && (
+      <ProductModal
+        modalTitle="Edit Product"
+        isOpen={isOpen}
+        product={formProduct}
+        formErrors={formErrors}
+        onChange={handleChange}
+        onClose={handleCloseModal}
+        onSubmit={handleSubmitProduct}
+      />
+      )}
     </>
 
   );

@@ -5,23 +5,21 @@ import React, {
 // Libraries from Chakra UI and PropTypes
 import {
   Box, Button, Input, Text,
-  Flex, Grid, useDisclosure, Modal, ModalOverlay,
-  ModalContent, ModalHeader, ModalFooter, ModalBody,
-  ModalCloseButton, FormControl, FormLabel, Textarea, FormErrorMessage,
+  Flex, Grid, Modal, ModalOverlay,
+  ModalContent, ModalHeader, ModalCloseButton, ModalFooter, useDisclosure,
 } from '@chakra-ui/react';
 
 import PropTypes from 'prop-types';
 
 // ProductCard component
 import { ProductCard } from '../ProductCard';
+import { ProductModal } from '../ProductModal';
 
 // ApiRequest
 import { apiRequest } from '../../services';
 import { AppContext } from '../../contexts/AppContext';
 
 export const ProductList = ({ products }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   const initialFormProduct = {
     title: '',
     price: '',
@@ -32,7 +30,9 @@ export const ProductList = ({ products }) => {
   const [formProduct, setFormProduct] = useState(initialFormProduct);
   const [formErrors, setFormErrors] = useState({});
   const [search, setSearch] = useState('');
-  const [listSearch, setListSearch] = useState([]);
+  const [productId, setProductId] = useState('');
+  const [isOpenProductModal, setIsOpenProductModal] = useState(false);
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
 
   const { setProducts } = useContext(AppContext);
 
@@ -71,15 +71,20 @@ export const ProductList = ({ products }) => {
     [setFormErrors, formProduct],
   );
 
-  // Close modal
-  const handleCloseModal = () => {
-    onClose();
+  // Toggle modal
+
+  const handleToggleProductModal = () => {
+    setIsOpenProductModal(!isOpenProductModal);
     setFormProduct(initialFormProduct);
     setFormErrors({});
   };
 
+  const handleToggleDeleteModal = () => {
+    setIsOpenDeleteModal(!isOpenDeleteModal);
+  };
+
   // Submit Form
-  const submitForm = async () => {
+  const HandleSubmitAddNewProduct = async () => {
     if (validateForm()) {
       const newForm = {
         ...formProduct,
@@ -88,12 +93,17 @@ export const ProductList = ({ products }) => {
       await apiRequest({ method: 'POST', body: newForm, apiName: 'products' });
 
       setFormProduct(initialFormProduct);
-      handleCloseModal();
+      handleToggleProductModal();
 
       // Re-fetch & update products list
       const productsData = await apiRequest({ apiName: 'products' });
       setProducts(productsData);
     }
+  };
+
+  const handleClickDelete = (id) => {
+    setProductId(id);
+    handleToggleDeleteModal();
   };
 
   // Delete product
@@ -103,11 +113,20 @@ export const ProductList = ({ products }) => {
     setProducts(productsData);
   };
 
-  useEffect(() => {
-    setListSearch(products.filter(({ title }) => (
-      (title).toLocaleLowerCase().includes(search.trim().toLocaleLowerCase())
-    )));
-  }, [search]);
+  // Delete product
+  const handleDeleteProduct = async (id) => {
+    const deleteData = async () => {
+      await apiRequest({ method: 'DELETE', apiName: `products/${id}` });
+    };
+
+    await deleteData();
+    handleDeleteRow();
+    handleToggleDeleteModal();
+  };
+
+  const productFilterred = products.filter(({ title }) => (
+    (title).toLocaleLowerCase().includes(search.trim().toLocaleLowerCase())
+  ));
 
   return (
     <>
@@ -129,64 +148,47 @@ export const ProductList = ({ products }) => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <Button variant="solid" onClick={onOpen}>
+          <Button variant="solid" onClick={handleToggleProductModal}>
             Add New Product
           </Button>
         </Flex>
         <Grid templateColumns="repeat(4, 1fr)" gridColumnGap="5" gridRowGap="6">
-          {listSearch.length === 0 ? products.map((product) => (
-            <ProductCard key={product.id} product={product} deleteRow={handleDeleteRow} />
-          )) : listSearch.map((product) => (
-            <ProductCard key={product.id} product={product} deleteRow={handleDeleteRow} />
-          ))}
+          {productFilterred.length === 0
+            ? <Text>No product found</Text>
+            : productFilterred.map((product) => (
+              <ProductCard key={product.id} product={product} onClickDelete={handleClickDelete} />
+            ))}
         </Grid>
       </Box>
 
-      {/* Modal add new product */}
-      <Modal isOpen={isOpen} onClose={handleCloseModal}>
+      {isOpenDeleteModal && (
+      <Modal height="18" isOpen={isOpenDeleteModal} onClose={handleToggleDeleteModal}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add New Product</ModalHeader>
-
+          <ModalHeader>Do you want to delete this product?</ModalHeader>
           <ModalCloseButton />
-
-          <ModalBody pb={6}>
-            <FormControl isInvalid={!!formErrors.title}>
-              <FormLabel>Product Name</FormLabel>
-              <Input name="title" value={formProduct.title} onChange={handleChange} placeholder="Product name" />
-              <FormErrorMessage>{formErrors.title}</FormErrorMessage>
-            </FormControl>
-
-            <FormControl mt={4} isInvalid={!!formErrors.price}>
-              <FormLabel>Product Price</FormLabel>
-              <Input type="number" name="price" value={formProduct.price} onChange={handleChange} placeholder="Product price" />
-              <FormErrorMessage>{formErrors.price}</FormErrorMessage>
-            </FormControl>
-
-            <FormControl mt={4} isInvalid={!!formErrors.description}>
-              <FormLabel>Product Description</FormLabel>
-              <Textarea placeholder="Product description" name="description" value={formProduct.description} onChange={handleChange} />
-              <FormErrorMessage>{formErrors.description}</FormErrorMessage>
-            </FormControl>
-
-            <FormControl mt={4} isInvalid={!!formErrors.image}>
-              <FormLabel>Product Image</FormLabel>
-              <Input name="image" value={formProduct.image} onChange={handleChange} placeholder="Product image" />
-              <FormErrorMessage>{formErrors.image}</FormErrorMessage>
-            </FormControl>
-          </ModalBody>
-
           <ModalFooter>
-            <Button h="10" mr={3} onClick={submitForm}>
+            <Button h="10" mr={3} onClick={() => handleDeleteProduct(productId)}>
               Confirm
             </Button>
-            <Button h="10" onClick={handleCloseModal}>
-              Cancel
-            </Button>
+            <Button h="10" onClick={handleToggleDeleteModal}>Cancel</Button>
           </ModalFooter>
-
         </ModalContent>
       </Modal>
+      )}
+
+      {/* Modal add new product */}
+      {isOpenProductModal && (
+      <ProductModal
+        modalTitle="Add New Product"
+        isOpen={isOpenProductModal}
+        product={formProduct}
+        formErrors={formErrors}
+        onChange={handleChange}
+        onClose={handleToggleProductModal}
+        onSubmit={HandleSubmitAddNewProduct}
+      />
+      )}
     </>
   );
 };
