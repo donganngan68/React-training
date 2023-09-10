@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {
+  useCallback, useContext, useEffect, useState,
+} from 'react';
 
 // Libraries from Chakra UI and PropTypes
 import {
@@ -26,6 +28,7 @@ export const ProductList = ({ products }) => {
     description: '',
     image: '',
   };
+
   const [formProduct, setFormProduct] = useState(initialFormProduct);
   const [formErrors, setFormErrors] = useState({});
   const [search, setSearch] = useState('');
@@ -49,19 +52,24 @@ export const ProductList = ({ products }) => {
   };
 
   // Validate form
-  const validateForm = () => {
-    const errors = {};
-    const {
-      title, price, description, image,
-    } = formProduct;
+  const validateForm = useCallback(
+    () => {
+      const errors = {};
 
-    if (!title) errors.title = 'Product name is required.';
-    if (!price) errors.price = 'Product price is required.';
-    if (!description) errors.description = 'Product description is required.';
-    if (!image) errors.image = 'Product image is required.';
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0; // Form is valid if errors object is empty
-  };
+      Object.keys(formProduct).forEach((field) => {
+        if (!formProduct[field]) {
+          errors[field] = `Product ${field} is required.`;
+        } else {
+          delete errors[field];
+        }
+      });
+
+      setFormErrors(errors);
+
+      return !Object.keys(errors).length;
+    },
+    [setFormErrors, formProduct],
+  );
 
   // Close modal
   const handleCloseModal = () => {
@@ -78,16 +86,12 @@ export const ProductList = ({ products }) => {
         price: Number(formProduct.price),
       };
       await apiRequest({ method: 'POST', body: newForm, apiName: 'products' });
-      setFormProduct({
-        title: '',
-        price: '',
-        description: '',
-        image: '',
-      });
+
+      setFormProduct(initialFormProduct);
       handleCloseModal();
 
+      // Re-fetch & update products list
       const productsData = await apiRequest({ apiName: 'products' });
-
       setProducts(productsData);
     }
   };
@@ -100,8 +104,8 @@ export const ProductList = ({ products }) => {
   };
 
   useEffect(() => {
-    setListSearch(products.filter((i) => (
-      (i.title).toLocaleLowerCase() === search.toLocaleLowerCase()
+    setListSearch(products.filter(({ title }) => (
+      (title).toLocaleLowerCase().includes(search.trim().toLocaleLowerCase())
     )));
   }, [search]);
 

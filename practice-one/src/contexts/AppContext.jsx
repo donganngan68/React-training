@@ -19,9 +19,9 @@ const AppContextProvider = ({ children }) => {
       const partnersData = await apiRequest({ apiName: 'partners' });
       const productsData = await apiRequest({ apiName: 'products' });
 
-      setBrands(brandData);
-      setPartners(partnersData);
-      setProducts(productsData);
+      setBrands(brandData ?? []);
+      setPartners(partnersData ?? []);
+      setProducts(productsData ?? []);
     };
 
     getData();
