@@ -43,7 +43,7 @@ const App = () => {
                 <Header />
                 <Partners partners={partners} />
                 <Highlight />
-                <ProductList products={products} submit={renderProduct} />
+                <ProductList products={products} />
                 <Brand brands={brands} />
                 <Footer />
               </>

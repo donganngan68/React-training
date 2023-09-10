@@ -20,12 +20,12 @@ export const ProductCard = ({
   }, deleteRow,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const deleteProduct = (i) => {
+  const deleteProduct = async (i) => {
     const deleteData = async () => {
       await apiRequest({ method: 'DELETE', apiName: `products/${i}` });
     };
 
-    deleteData();
+    await deleteData();
     deleteRow();
   };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 // Libraries from Chakra UI and PropTypes
 import {
@@ -15,8 +15,9 @@ import { ProductCard } from '../ProductCard';
 
 // ApiRequest
 import { apiRequest } from '../../services';
+import { AppContext } from '../../contexts/AppContext';
 
-export const ProductList = ({ products, submit }) => {
+export const ProductList = ({ products }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialFormProduct = {
@@ -29,6 +30,9 @@ export const ProductList = ({ products, submit }) => {
   const [formErrors, setFormErrors] = useState({});
   const [search, setSearch] = useState('');
   const [listSearch, setListSearch] = useState([]);
+
+  const { setProducts } = useContext(AppContext);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -81,13 +85,18 @@ export const ProductList = ({ products, submit }) => {
         image: '',
       });
       handleCloseModal();
-      submit();
+
+      const productsData = await apiRequest({ apiName: 'products' });
+
+      setProducts(productsData);
     }
   };
 
   // Delete product
-  const handleDeleteRow = () => {
-    submit();
+  const handleDeleteRow = async () => {
+    const productsData = await apiRequest({ apiName: 'products' });
+
+    setProducts(productsData);
   };
 
   useEffect(() => {
@@ -187,5 +196,4 @@ ProductList.propTypes = {
       price: PropTypes.number,
     }),
   ).isRequired,
-  submit: PropTypes.func.isRequired,
 };

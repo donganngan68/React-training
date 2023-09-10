@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Box, Flex, Image, Text, Button,
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton,
@@ -14,14 +14,16 @@ import { Header } from '../Header';
 
 // ApiRequest
 import { apiRequest } from '../../services';
+import { AppContext } from '../../contexts/AppContext';
 
-export const DetailProduct = ({ products, submit }) => {
+export const DetailProduct = ({ products }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const idDetail = window.location.pathname.split('/')[2];
   const itemDetail = products.find((i) => i.id === Number(idDetail));
 
   const [formProduct, setFormProduct] = useState({});
+  const { setProducts } = useContext(AppContext);
 
   const initialFormProduct = {
     title: itemDetail?.title,
@@ -52,7 +54,9 @@ export const DetailProduct = ({ products, submit }) => {
       method: 'PUT', body: newForm, apiName: `products/${idDetail}`,
     });
     onClose();
-    submit();
+    const productsData = await apiRequest({ apiName: 'products' });
+
+    setProducts(productsData);
   };
 
   return (
@@ -151,5 +155,4 @@ DetailProduct.propTypes = {
     title: PropTypes.string,
     price: PropTypes.number,
   })).isRequired,
-  submit: PropTypes.func.isRequired,
 };
