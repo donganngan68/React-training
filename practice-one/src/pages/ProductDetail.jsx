@@ -5,25 +5,23 @@ import {
   ModalBody, FormControl, FormLabel, Input, Textarea, ModalFooter, useDisclosure,
 } from '@chakra-ui/react';
 
-import PropTypes from 'prop-types';
-
 // Components
-import { Footer } from '../Footer';
-import Container from '../Container';
-import { Header } from '../Header';
+import { Footer } from '../components/Footer';
+import Container from '../components/Container';
+import { Header } from '../components/Header';
 
 // ApiRequest
-import { apiRequest } from '../../services';
-import { AppContext } from '../../contexts/AppContext';
+import { apiRequest } from '../services';
+import { AppContext } from '../contexts/AppContext';
 
-export const DetailProduct = ({ products }) => {
+const ProductDetailPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { setProducts, products } = useContext(AppContext);
 
   const idDetail = window.location.pathname.split('/')[2];
   const itemDetail = products.find((i) => i.id === Number(idDetail));
 
   const [formProduct, setFormProduct] = useState({});
-  const { setProducts } = useContext(AppContext);
 
   const initialFormProduct = {
     title: itemDetail?.title,
@@ -148,11 +146,4 @@ export const DetailProduct = ({ products }) => {
   );
 };
 
-DetailProduct.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    image: PropTypes.string,
-    title: PropTypes.string,
-    price: PropTypes.number,
-  })).isRequired,
-};
+export default ProductDetailPage;

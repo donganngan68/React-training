@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,55 +11,27 @@ import {
 // Theme
 import themeConfiguration from './theme';
 
-// Components
-import {
-  StickyHeader, Header, Partners, Highlight, ProductList, Brand, Footer, DetailProduct,
-} from './components';
-
-// Helpers
-import { apiRequest } from './services';
-
-// Contexts
-import { AppContext } from './contexts/AppContext';
+// Page
+import { HomePage, ProductDetailPage } from './pages';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
-const App = () => {
-  const { brands, partners, products } = useContext(AppContext);
+const App = () => (
+  <ChakraProvider theme={defaultTheme}>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={(<HomePage />)}
+        />
 
-  const renderProduct = () => {
-    console.log('---');
-  };
-
-  return (
-    <ChakraProvider theme={defaultTheme}>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={(
-              <>
-                <StickyHeader />
-                <Header />
-                <Partners partners={partners} />
-                <Highlight />
-                <ProductList products={products} />
-                <Brand brands={brands} />
-                <Footer />
-              </>
-              )}
-          />
-
-          <Route
-            path="/detail/:id"
-            element={(
-              <DetailProduct products={products} submit={renderProduct} />
-              )}
-          />
-        </Routes>
-      </Router>
-    </ChakraProvider>
-  );
-};
+        <Route
+          path="/detail/:id"
+          element={(<ProductDetailPage />)}
+        />
+      </Routes>
+    </Router>
+  </ChakraProvider>
+);
 
 export default App;
