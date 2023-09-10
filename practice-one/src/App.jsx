@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,33 +19,16 @@ import {
 // Helpers
 import { apiRequest } from './services';
 
+// Contexts
+import { AppContext } from './contexts/AppContext';
+
 const defaultTheme = extendTheme(themeConfiguration.default);
 
-function App() {
-  const [data, setData] = useState({
-    brands: [],
-    partners: [],
-    products: [],
-  });
-
-  const getData = async () => {
-    const brandData = await apiRequest({ apiName: 'brands' });
-    const partnersData = await apiRequest({ apiName: 'partners' });
-    const productsData = await apiRequest({ apiName: 'products' });
-
-    setData({
-      brands: brandData,
-      partners: partnersData,
-      products: productsData,
-    });
-  };
-
-  useEffect(() => () => {
-    getData();
-  }, []);
+const App = () => {
+  const { brands, partners, products } = useContext(AppContext);
 
   const renderProduct = () => {
-    getData();
+    console.log('---');
   };
 
   return (
@@ -58,25 +41,25 @@ function App() {
               <>
                 <StickyHeader />
                 <Header />
-                <Partners partners={data.partners} />
+                <Partners partners={partners} />
                 <Highlight />
-                <ProductList products={data.products} submit={renderProduct} />
-                <Brand brands={data.brands} />
+                <ProductList products={products} submit={renderProduct} />
+                <Brand brands={brands} />
                 <Footer />
               </>
-            )}
+              )}
           />
 
           <Route
             path="/detail/:id"
             element={(
-              <DetailProduct products={data.products} submit={renderProduct} />
-            )}
+              <DetailProduct products={products} submit={renderProduct} />
+              )}
           />
         </Routes>
       </Router>
     </ChakraProvider>
   );
-}
+};
 
 export default App;

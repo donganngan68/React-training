@@ -1,11 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Libraries from Chakra UI and PropTypes
 import {
   Box, Text, Grid, GridItem,
 } from '@chakra-ui/react';
-
-import PropTypes from 'prop-types';
 
 // BrandCardItem component
 import { BrandCardItem } from '../BrandCardItem';
