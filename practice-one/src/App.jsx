@@ -16,19 +16,28 @@ import { HomePage, ProductDetailPage } from './pages';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
+const pages = [
+  {
+    path: '/',
+    element: <HomePage />,
+  },
+  {
+    path: '/detail/:id',
+    element: <ProductDetailPage />,
+  },
+];
+
 const App = () => (
   <ChakraProvider theme={defaultTheme}>
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={(<HomePage />)}
-        />
-
-        <Route
-          path="/detail/:id"
-          element={(<ProductDetailPage />)}
-        />
+        {pages.map(({ path, element }) => (
+          <Route
+            key={path}
+            path={path}
+            element={element}
+          />
+        ))}
       </Routes>
     </Router>
   </ChakraProvider>
