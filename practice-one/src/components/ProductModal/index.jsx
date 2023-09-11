@@ -7,6 +7,8 @@ import {
 } from '@chakra-ui/react';
 
 import PropTypes from 'prop-types';
+
+// Components
 import { ProductFormControl } from '../ProductFormControl';
 
 export const ProductModal = ({
