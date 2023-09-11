@@ -5,6 +5,8 @@ export const apiRequest = async (options) => {
     apiName, method, header, body, defaultValue,
   } = options;
 
+  // ISSUE: Update to env file for now to avoid issue while deplping to vercel
+  const REACT_APP_API_ENDPOINT = 'https://react-training-json-server.onrender.com/';
   const fullAPIEndpoint = `${process.env.REACT_APP_API_ENDPOINT}${apiName}`;
 
   const isGetMethod = !options.method || options.method === APIMethods.Get;
