@@ -13,7 +13,7 @@ const AppContextProvider = ({ children }) => {
   const [partners, setPartners] = useState([]);
   const [products, setProducts] = useState([]);
 
-  useEffect(() => () => {
+  useEffect(() => {
     const getData = async () => {
       const brandData = await apiRequest({ apiName: 'brands' });
       const partnersData = await apiRequest({ apiName: 'partners' });
