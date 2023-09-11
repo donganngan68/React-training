@@ -1,4 +1,4 @@
-export default {
+export const dataMenu = {
   MenuFooter: [
     {
       id: '0',

@@ -11,3 +11,7 @@ export * from './Footer';
 export * from './Partners';
 
 export * from './Brand';
+
+export * from './ProductModal';
+
+export * from './ProductFormControl';

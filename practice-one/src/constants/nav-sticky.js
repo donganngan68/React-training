@@ -1,4 +1,4 @@
-const navSticky = [
+export const navSticky = [
   {
     id: 0,
     name: 'Shipping',
@@ -15,5 +15,3 @@ const navSticky = [
     href: '#contact',
   },
 ];
-
-export default navSticky;

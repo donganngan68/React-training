@@ -1,17 +1,19 @@
-import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
+
+// Libraries from Chakra UI
+import { Box, Text } from '@chakra-ui/react';
 
 // Container component
 import Container from '../Container';
 
 // Constant
-import constants from '../../constants';
+import { images } from '../../constants';
 
 // Theme configuration
 import theme from '../../theme/index';
 
 export const Highlight = () => (
-  <Box backgroundImage={constants.images.highlight} height="lg" backgroundRepeat="no-repeat" backgroundSize="cover">
+  <Box backgroundImage={images.highlight} height="lg" backgroundRepeat="no-repeat" backgroundSize="cover">
     <Container pt="28">
       <Text fontSize="5xl" fontWeight="bold" fontFamily={theme.default.fonts.secondary}>
         New

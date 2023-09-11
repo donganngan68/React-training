@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Libraries from Chakra UI
 import {
   Box, Flex, Text, Image,
 } from '@chakra-ui/react';
@@ -10,7 +12,7 @@ import theme from '../../theme';
 import FooterMenu from '../FooterMenu';
 
 // Constants
-import constants from '../../constants';
+import { iconFooter } from '../../constants';
 
 export const Footer = () => (
   <Box w="100%" px="36" pt="16" bg="#e4e4e4">
@@ -26,11 +28,11 @@ export const Footer = () => (
     </Flex>
     <Box py="10">
       <Flex justify="space-between">
-        <Text fontSize="sm">@2023 All rights reserved. Designed by Brand</Text>
+        <Text fontSize="sm">&#64; 2023 All rights reserved. Designed by Brand</Text>
         <Box>
           <Flex>
             <Text pr="12" fontSize="sm">Payment Partners</Text>
-            {constants.iconFooter.map(({ id, name, logo }) => (
+            {iconFooter.map(({ id, name, logo }) => (
               <Image pr="5" key={id} src={logo} alt={name} />
             ))}
           </Flex>
