@@ -18,6 +18,7 @@ export const ProductModal = ({
   formErrors: {
     title: titleMessage, price: priceMessage, description: descriptionMessage, image: imageMessage,
   },
+  product,
   modalTitle,
   isOpen, onClose, onSubmit, onChange,
 }) => (
@@ -51,7 +52,7 @@ ProductModal.propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string,
     image: PropTypes.string,
-    price: PropTypes.number,
+    price: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
   formErrors: PropTypes.shape({

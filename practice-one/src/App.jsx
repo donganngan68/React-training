@@ -13,6 +13,7 @@ import themeConfiguration from './theme';
 
 // Page
 import { HomePage, ProductDetailPage } from './pages';
+import { MainLayout } from './layouts/MainLayout';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
 
@@ -35,7 +36,13 @@ const App = () => (
           <Route
             key={path}
             path={path}
-            element={element}
+            element={(
+              <MainLayout
+                isPoductDetails={!(path === '/')}
+              >
+                {element}
+              </MainLayout>
+            )}
           />
         ))}
       </Routes>

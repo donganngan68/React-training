@@ -5,6 +5,8 @@ import {
   Box, Flex, Image, Text, Button, useDisclosure,
 } from '@chakra-ui/react';
 
+import { useParams } from 'react-router';
+
 // Components
 import {
   Footer, Header, ProductModal,
@@ -17,25 +19,25 @@ import { apiRequest } from '../services';
 import { AppContext } from '../contexts/AppContext';
 
 const ProductDetailPage = () => {
+  const params = useParams();
+  const { id } = params;
+  const [product, setProduct] = useState({});
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { setProducts, products } = useContext(AppContext);
-
-  const idDetail = window.location.pathname.split('/')[2];
-  const itemDetail = products.find((i) => i.id === Number(idDetail));
-
   const [formProduct, setFormProduct] = useState({});
   const [formErrors, setFormErrors] = useState({});
 
-  const initialFormProduct = {
-    title: itemDetail?.title,
-    price: itemDetail?.price,
-    description: itemDetail?.description,
-    image: itemDetail?.image,
+  const handleGetProduct = async () => {
+    const productData = await apiRequest({ apiName: `products/${id}` });
+
+    setProduct(productData);
+    setFormProduct({ ...productData, price: productData.price.toString() });
   };
 
-  useEffect(() => {
-    setFormProduct(initialFormProduct);
-  }, [products]);
+  useEffect(() => () => {
+    handleGetProduct();
+  }, []);
 
   // Validate form
   const validateForm = useCallback(
@@ -69,7 +71,7 @@ const ProductDetailPage = () => {
   // Close modal
   const handleCloseModal = () => {
     onClose();
-    setFormProduct(initialFormProduct);
+    setFormProduct(product);
     setFormErrors({});
   };
 
@@ -79,35 +81,30 @@ const ProductDetailPage = () => {
         ...formProduct,
         price: Number(formProduct.price),
       };
-      await apiRequest({ method: 'PUT', body: newForm, apiName: `products/${idDetail}` });
-
-      setFormProduct(initialFormProduct);
+      await apiRequest({ method: 'PUT', body: newForm, apiName: `products/${id}` });
+      handleGetProduct();
       handleCloseModal();
-      // Re-fetch & update products list
-      const productsData = await apiRequest({ apiName: 'products' });
-      setProducts(productsData);
     }
   };
 
   return (
     <>
       <Container>
-        <Header isShowBackground={false} />
         <Flex pt="14">
           <Box mb="10" mr="24">
-            <Image w="100%" src={itemDetail?.image} />
+            <Image w="100%" src={product?.image} />
             <Text mt="14" mb="8" textDecor="underline">Description</Text>
             <Text fontSize="sm">
-              {itemDetail?.description}
+              {product?.description}
             </Text>
           </Box>
           <Box>
             <Text fontWeight="bold" fontSize="2md" fontFamily="secondary">
-              {itemDetail?.title}
+              {product?.title}
             </Text>
             <Text my="5" color="primary" fontWeight="semibold">
               $
-              {itemDetail?.price}
+              {product?.price}
             </Text>
             <Button w="80" onClick={onOpen}>
               Edit
@@ -115,7 +112,6 @@ const ProductDetailPage = () => {
           </Box>
         </Flex>
       </Container>
-      <Footer />
 
       {isOpen
       && (

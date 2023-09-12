@@ -1,5 +1,5 @@
 import React, {
-  useCallback, useContext, useEffect, useState,
+  useCallback, useContext, useState,
 } from 'react';
 
 // Libraries from Chakra UI and PropTypes
@@ -72,7 +72,6 @@ export const ProductList = ({ products }) => {
   );
 
   // Toggle modal
-
   const handleToggleProductModal = () => {
     setIsOpenProductModal(!isOpenProductModal);
     setFormProduct(initialFormProduct);
@@ -124,7 +123,7 @@ export const ProductList = ({ products }) => {
     handleToggleDeleteModal();
   };
 
-  const productFilterred = products.filter(({ title }) => (
+  const productFilterred = products?.filter(({ title }) => (
     (title).toLocaleLowerCase().includes(search.trim().toLocaleLowerCase())
   ));
 

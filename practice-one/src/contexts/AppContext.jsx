@@ -13,20 +13,6 @@ const AppContextProvider = ({ children }) => {
   const [partners, setPartners] = useState([]);
   const [products, setProducts] = useState([]);
 
-  useEffect(() => () => {
-    const getData = async () => {
-      const brandData = await apiRequest({ apiName: 'brands' });
-      const partnersData = await apiRequest({ apiName: 'partners' });
-      const productsData = await apiRequest({ apiName: 'products' });
-
-      setBrands(brandData ?? []);
-      setPartners(partnersData ?? []);
-      setProducts(productsData ?? []);
-    };
-
-    getData();
-  }, []);
-
   const providerData = useMemo(() => ({
     brands,
     setBrands,
