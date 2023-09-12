@@ -83,7 +83,7 @@ export const ProductList = ({ products }) => {
   };
 
   // Submit Form
-  const HandleSubmitAddNewProduct = async () => {
+  const handleSubmitAddNewProduct = async () => {
     if (validateForm()) {
       const newForm = {
         ...formProduct,
@@ -185,7 +185,7 @@ export const ProductList = ({ products }) => {
         formErrors={formErrors}
         onChange={handleChange}
         onClose={handleToggleProductModal}
-        onSubmit={HandleSubmitAddNewProduct}
+        onSubmit={handleSubmitAddNewProduct}
       />
       )}
     </>

@@ -14,7 +14,7 @@ const HomePage = () => {
     brands, partners, products, setProducts, setBrands, setPartners,
   } = useContext(AppContext);
 
-  useEffect(() => () => {
+  useEffect(() => {
     const getData = async () => {
       const brandData = await apiRequest({ apiName: 'brands' });
       const partnersData = await apiRequest({ apiName: 'partners' });
