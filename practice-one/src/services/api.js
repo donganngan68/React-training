@@ -2,7 +2,7 @@ import { APIMethods } from '../constants';
 
 export const apiRequest = async (options) => {
   const {
-    apiName, method, header, body, defaultValue,
+    apiName, method, header, body,
   } = options;
 
   // ISSUE: Update to env file for now to avoid issue while deplping to vercel
@@ -20,17 +20,13 @@ export const apiRequest = async (options) => {
   } : {};
 
   try {
-    const dataResponse = await fetch(fullAPIEndpoint, method === 'DELETE' ? { method } : requestOptions).then((res) => {
-      const { ok } = res;
+    const dataResponse = await fetch(fullAPIEndpoint, method === 'DELETE' ? { method } : requestOptions);
 
-      if (!ok) {
-        throw new Error('Something went wrong!!');
-      }
+    if (!dataResponse.ok) {
+      throw new Error('Something went wrong!!');
+    }
 
-      return res.json();
-    });
-
-    return dataResponse;
+    return dataResponse.json();
   } catch (error) {
     throw new Error(error);
   }
