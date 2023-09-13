@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Header, Footer, StickyHeader } from '../components';
 
-export const MainLayout = ({ isPoductDetails, children }) => (
+export const MainLayout = ({ isProductDetails, children }) => (
   <>
-    {!isPoductDetails && <StickyHeader />}
-    <Header isShowBackground={!isPoductDetails} />
+    {!isProductDetails && <StickyHeader />}
+    <Header isShowBackground={!isProductDetails} />
     {children}
     <Footer />
   </>
 );
 
 MainLayout.propTypes = {
-  isPoductDetails: PropTypes.bool,
+  isProductDetails: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
 MainLayout.defaultProps = {
-  isPoductDetails: false,
+  isProductDetails: false,
 };

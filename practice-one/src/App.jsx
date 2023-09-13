@@ -38,7 +38,7 @@ const App = () => (
             path={path}
             element={(
               <MainLayout
-                isPoductDetails={!(path === '/')}
+                isProductDetails={!(path === '/')}
               >
                 {element}
               </MainLayout>
