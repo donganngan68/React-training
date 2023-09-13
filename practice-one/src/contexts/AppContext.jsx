@@ -1,10 +1,7 @@
 import React, {
-  createContext, useState, useEffect, useMemo,
+  createContext, useState, useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
-
-// Services
-import { apiRequest } from '../services';
 
 export const AppContext = createContext({});
 

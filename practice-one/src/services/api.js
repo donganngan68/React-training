@@ -8,7 +8,7 @@ export const apiRequest = async (options) => {
   // ISSUE: Update to env file for now to avoid issue while deplping to vercel
   const fullAPIEndpoint = `${process.env.REACT_APP_API_ENDPOINT}${apiName}`;
 
-  const isGetMethod = !options.method || options.method === APIMethods.Get;
+  const isGetMethod = !options.method || options.method === APIMethods.Get; // (isGetMethod = true )
 
   const requestOptions = !isGetMethod ? {
     method,
@@ -20,10 +20,18 @@ export const apiRequest = async (options) => {
   } : {};
 
   try {
-    const request = await fetch(fullAPIEndpoint, method === 'DELETE' ? { method } : requestOptions);
-    const dataResponse = await request.json();
+    const dataResponse = await fetch(fullAPIEndpoint, method === 'DELETE' ? { method } : requestOptions).then((res) => {
+      const { ok } = res;
+
+      if (!ok) {
+        throw new Error('Something went wrong!!');
+      }
+
+      return res.json();
+    });
+
     return dataResponse;
   } catch (error) {
-    return Promise.resolve(defaultValue ?? null);
+    throw new Error(error);
   }
 };

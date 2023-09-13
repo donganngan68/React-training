@@ -6,7 +6,7 @@ import React, {
 import {
   Box, Button, Input, Text,
   Flex, Grid, Modal, ModalOverlay,
-  ModalContent, ModalHeader, ModalCloseButton, ModalFooter, useDisclosure,
+  ModalContent, ModalHeader, ModalCloseButton, ModalFooter, useToast,
 } from '@chakra-ui/react';
 
 import PropTypes from 'prop-types';
@@ -20,6 +20,8 @@ import { apiRequest } from '../../services';
 import { AppContext } from '../../contexts/AppContext';
 
 export const ProductList = ({ products }) => {
+  const toast = useToast();
+
   const initialFormProduct = {
     title: '',
     price: '',
@@ -84,19 +86,29 @@ export const ProductList = ({ products }) => {
 
   // Submit Form
   const handleSubmitAddNewProduct = async () => {
-    if (validateForm()) {
-      const newForm = {
-        ...formProduct,
-        price: Number(formProduct.price),
-      };
-      await apiRequest({ method: 'POST', body: newForm, apiName: 'products' });
+    try {
+      if (validateForm()) {
+        const newForm = {
+          ...formProduct,
+          price: Number(formProduct.price),
+        };
+        await apiRequest({ method: 'POST', body: newForm, apiName: 'products' });
 
-      setFormProduct(initialFormProduct);
-      handleToggleProductModal();
+        setFormProduct(initialFormProduct);
+        handleToggleProductModal();
 
-      // Re-fetch & update products list
-      const productsData = await apiRequest({ apiName: 'products' });
-      setProducts(productsData);
+        // Re-fetch & update products list
+        const productsData = await apiRequest({ apiName: 'products' });
+        setProducts(productsData);
+      }
+    } catch (error) {
+      toast({
+        title: 'API Error',
+        description: 'An error occurred while communicating with the server.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
     }
   };
 

@@ -5,7 +5,7 @@ import { AppContext } from '../contexts/AppContext';
 
 // Components
 import {
-  StickyHeader, Header, Partners, Highlight, ProductList, Brand, Footer,
+  Partners, Highlight, ProductList, Brand, Footer,
 } from '../components';
 import { apiRequest } from '../services';
 
