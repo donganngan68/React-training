@@ -1,38 +1,67 @@
 {
   "products": [
     {
-      "title": "Lacoste",
-      "price": 1000,
-      "description": "fgdfgdf",
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
-      "id": 2
-    },
-    {
-      "title": "Nike",
-      "price": 100,
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
-      "id": 7
-    },
-    {
-      "title": "Dress",
-      "price": 323423,
-      "description": "dfgdfgzdxfcgvhbjlkjhtrew",
-      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/shirt.png?alt=media&token=75b0081d-781f-4d5a-8127-4ee3c045b6a0",
+      "title": "Hand Bag",
+      "price": 300,
+      "description": "Now Fashion garments underwent sdfghjhgfdssdfgkjhtreretrytdy",
+      "image": "https://th.bing.com/th/id/OIP.9XDX6t4vsGxgTT0-kkX0-QHaHB?pid=ImgDet&rs=1",
       "id": 9
     },
     {
-      "title": "fghjkl",
-      "price": 56789,
-      "description": "dtfgyuhjikol",
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
+      "title": "Vest",
+      "price": 70,
+      "description": "rom Paris, they went to other parts of the world. Hence, Paris became the Fashion capital of the world. Also, Fashion in this era was ‘haute couture’. This Fashion design was exclusively for individuals.",
+      "image": "https://th.bing.com/th/id/R.d02d2186d5adc1a8057c6edeb928f860?rik=64mhf65ss3RxFA&riu=http%3a%2f%2fsquarefashions.com%2fimages%2fportfolio%2fpm4.jpg&ehk=L0rESgG6xV2RekKk7l7LIxtkl8OB7gezv4XMkNd1%2fq0%3d&risl=&pid=ImgRaw&r=0",
       "id": 10
     },
     {
       "title": "NewJean",
       "price": 544,
-      "description": "fgdfgdf",
-      "image": "https://firebasestorage.googleapis.com/v0/b/card-f9463.appspot.com/o/coat.png?alt=media&token=f0930459-c12d-4cda-892a-c2f441df6541",
+      "description": "Now Fashion garments underwent mass production. There was a significant increase in the rate of production of Fashion garments. As a result, more and more people became involved with Fashion garments.",
+      "image": "https://1.bp.blogspot.com/-Jpjlfa14D2E/UV7FLusDUtI/AAAAAAAAEJ8/Dql-bBYDCCM/s400/Spring+Summer+Fashion+2013-1.jpg",
       "id": 11
+    },
+    {
+      "title": "Dress Summer",
+      "price": 34,
+      "description": "Now Fashion garments underwent mass production. There was a significant increase in the rate of production of Fashion garments. As a result, more and more people became involved with Fashion garments.",
+      "image": "https://th.bing.com/th/id/OIP.AeLIFrzkjIICkR7UZiIoTgHaEA?pid=ImgDet&w=184&h=99&c=7",
+      "id": 12
+    },
+    {
+      "title": "Trousers",
+      "price": 345,
+      "description": "Fashion refers to anything that becomes a rage among the masses. Fashion is a popular aesthetic expression. Most Noteworthy, it is something that is in vogue. Fashion appears in clothing, footwear, accessories, makeup, hairstyles, lifestyle, and body proportions.",
+      "image": "https://th.bing.com/th/id/OIP.MWZw4ZNbkr24O0Lzsp6CvQHaFe?pid=ImgDet&rs=1",
+      "id": 13
+    },
+    {
+      "title": "White Dress",
+      "price": 788,
+      "description": "Fashion is an industry-supported expression. In the contemporary world, people take fashion very seriously. Fashion is something that has permeated every aspect of human culture.",
+      "image": "https://th.bing.com/th/id/OIP.yEG62HVeA7ngaHM63aJ08AHaFj?pid=ImgDet&w=184&h=138&c=7",
+      "id": 14
+    },
+    {
+      "title": "Ao Dai",
+      "price": 989,
+      "description": "the aoi dai, introduced nearly 250 years ago remain a common fixture at upscale events as well as in daily life? 3 How can this garment, initially introduced to differentiate political ties, now unify people within its once divided country and across the Pacific Ocean",
+      "image": "https://th.bing.com/th/id/OIP.H4zGP8H-1bnWXizhiLvzLQHaHW?pid=ImgDet&rs=1",
+      "id": 15
+    },
+    {
+      "title": "NewJean",
+      "price": 112,
+      "description": "Now Fashion garments underwent mass production. There was a significant increase in the rate of production of Fashion garments. As a result, more and more people became involved with Fashion garments.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/brand-1b5b2.appspot.com/o/dress.png?alt=media&token=71f7ff39-ae4a-418d-a55f-6043b0c4c75f",
+      "id": 16
+    },
+    {
+      "title": "T-shirt",
+      "price": 45,
+      "description": "Why do you clothe yourself. Not with just anything that fits, but you want fashionable clothing that expresses who you are. What causes you to instinctively need to wear clothing, not just to stay warm, but also to express yourself visually",
+      "image": "data:image/jpeg;base64,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",
+      "id": 17
     }
   ],
   "partners": [

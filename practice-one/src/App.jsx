@@ -16,7 +16,7 @@ import { HomePage, ProductDetailPage } from './pages';
 import { MainLayout } from './layouts/MainLayout';
 
 const defaultTheme = extendTheme(themeConfiguration.default);
-
+console.log(defaultTheme);
 const pages = [
   {
     path: '/',

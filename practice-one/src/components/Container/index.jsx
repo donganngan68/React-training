@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 
 const Container = ({ children, ...rest }) => (
+  // TODO: Apply theme
   <ChakraContainer
     maxW={{
       base: 'full',

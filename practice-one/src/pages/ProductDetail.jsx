@@ -91,7 +91,7 @@ const ProductDetailPage = () => {
     <>
       <Container>
         <Flex pt="14">
-          <Box mb="10" mr="24">
+          <Box w="2xl" mb="10" mr="24">
             <Image w="100%" src={product?.image} />
             <Text mt="14" mb="8" textDecor="underline">Description</Text>
             <Text fontSize="sm">
