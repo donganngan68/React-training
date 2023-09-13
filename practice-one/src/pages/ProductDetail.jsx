@@ -24,7 +24,6 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState({});
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { setProducts, products } = useContext(AppContext);
   const [formProduct, setFormProduct] = useState({});
   const [formErrors, setFormErrors] = useState({});
 
@@ -35,7 +34,7 @@ const ProductDetailPage = () => {
     setFormProduct({ ...productData, price: productData.price.toString() });
   };
 
-  useEffect(() => () => {
+  useEffect(() => {
     handleGetProduct();
   }, []);
 
