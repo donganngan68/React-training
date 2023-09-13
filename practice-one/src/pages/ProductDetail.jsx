@@ -35,7 +35,11 @@ const ProductDetailPage = () => {
   };
 
   useEffect(() => {
-    handleGetProduct();
+    if (id) {
+      handleGetProduct();
+    } else {
+      // TODO: Update later
+    }
   }, []);
 
   // Validate form
