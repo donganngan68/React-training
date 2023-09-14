@@ -174,7 +174,7 @@ export const ProductList = ({ products }) => {
           <ModalHeader>Do you want to delete this product?</ModalHeader>
           <ModalCloseButton />
           <ModalFooter>
-            <Button h="10" mr={3} onClick={() => handleDeleteProduct(productId)}>
+            <Button h="10" mr={3} bg="red" onClick={() => handleDeleteProduct(productId)}>
               Confirm
             </Button>
             <Button h="10" onClick={handleToggleDeleteModal}>Cancel</Button>
