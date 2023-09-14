@@ -18,7 +18,9 @@ export const ProductCard = ({
   <GridItem key={id}>
     <Box key={id}>
       <Box pos="relative">
-        <Image minWidth="2xs" w="100%" height="302px" objectFit="cover" src={image} />
+        <Link to={`/detail/${id}`}>
+          <Image minWidth="2xs" w="100%" height="302px" objectFit="cover" src={image} />
+        </Link>
         <Flex px="2.5" pos="absolute" bottom="3%">
           <Button w="28" h="7" mr="3.5" fontSize="md">
             <Link to={`/detail/${id}`}>
