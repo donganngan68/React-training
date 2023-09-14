@@ -10,8 +10,8 @@ export const ProductFormControl = ({
 }) => (
   <FormControl isInvalid={!!errorMessage}>
     <FormLabel>{title}</FormLabel>
-    <Input name={name} value={value} onChange={onChange} placeholder={title} type={type} />
-    <FormErrorMessage>{errorMessage}</FormErrorMessage>
+    <Input mb="2" name={name} value={value} onChange={onChange} placeholder={title} type={type} />
+    <FormErrorMessage mb="1">{errorMessage}</FormErrorMessage>
   </FormControl>
 );
 
