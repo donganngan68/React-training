@@ -30,7 +30,9 @@ This application is using React to a web application Fashion application
     ├── assets
     ├── components
     ├── constants
-    ├── helpers
+    ├── contexts
+    ├── layouts
+    ├── pages
     ├── services
     ├── theme
     ├── App.js
