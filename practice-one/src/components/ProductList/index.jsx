@@ -117,20 +117,15 @@ export const ProductList = ({ products }) => {
     handleToggleDeleteModal();
   };
 
-  // Delete product
   const handleDeleteRow = async () => {
     const productsData = await apiRequest({ apiName: 'products' });
 
     setProducts(productsData);
   };
 
-  // Delete product
   const handleDeleteProduct = async (id) => {
-    const deleteData = async () => {
-      await apiRequest({ method: 'DELETE', apiName: `products/${id}` });
-    };
+    await apiRequest({ method: 'DELETE', apiName: `products/${id}` });
 
-    await deleteData();
     handleDeleteRow();
     handleToggleDeleteModal();
   };
