@@ -8,8 +8,23 @@ import {
 // Components
 import Container from '../Container';
 
-// Constants
-import { navSticky } from '../../constants';
+const navSticky = [
+  {
+    id: 0,
+    name: 'Shipping',
+    href: '#shipping',
+  },
+  {
+    id: 1,
+    name: 'FAQ',
+    href: '#faq',
+  },
+  {
+    id: 2,
+    name: 'Contact',
+    href: '#contact',
+  },
+];
 
 export const StickyHeader = () => (
   <Box w="full" backgroundColor="primary">
